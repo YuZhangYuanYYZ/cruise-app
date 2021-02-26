@@ -33,8 +33,8 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        semi: true,
         singleQuote: true,
+        semi: true,
         printWidth: 80,
         tabWidth: 2,
         trailingComma: 'es5',

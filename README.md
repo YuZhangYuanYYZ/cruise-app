@@ -5,8 +5,10 @@ A frontend app which shows the resources.
 # Development Setup
 
 ## Requirements
+
 - use node version 12.9
 - use yarn
+
 ## Available Scripts
 
 In the project directory, you can run:
