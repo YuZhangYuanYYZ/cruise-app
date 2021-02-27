@@ -1,3 +1,5 @@
+@import '../../../../styles/shared.scss';
+
 .statusCard {
   width: 30%;
   color: #fff;
@@ -5,13 +7,13 @@
   justify-content: space-between;
   padding: 0 10px;
   &.yellow {
-    background-color: #ff9a2a;
+    background-color: $yellow;
   }
   &.green {
-    background-color: #7fbc39;
+    background-color: $green;
   }
   .status {
-    font-size: 18px bold;
+    font-size: $largeFront;
     font-family: 'cruise';
     font-weight: bold;
     align-self: flex-start;
@@ -23,7 +25,7 @@
     opacity: 20%;
   }
   .countNumber {
-    font-size: 48px;
+    font-size: $xLargeFront;
     align-self: flex-end;
     padding-bottom: 26px;
   }
