@@ -1,0 +1,23 @@
+@import '../../../../../styles/shared.scss';
+.countContainer {
+  display: flex;
+  width: 30%;
+  text-align: center;
+  align-items: center;
+  background-color: #fff;
+  .all,
+  .physical,
+  .virtual {
+    flex: 1 1 30%;
+    display: flex;
+    flex-direction: column;
+    font-size: $xsmallFront;
+  }
+  .allNumber,
+  .physicalNumber,
+  .virtualNumber {
+    font-size: $largerFront;
+    font-weight: bold;
+    padding-top: 25px;
+  }
+}
