@@ -1,0 +1,18 @@
+@import '../../styles/shared.scss';
+
+.agentItem {
+  display: flex;
+  margin-top: 20px;
+  display: flex;
+  .itemlogo {
+    flex: 0 1 100px;
+  }
+  img {
+    size: 80px;
+  }
+  .agentItemInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+}
