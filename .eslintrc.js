@@ -30,7 +30,7 @@ module.exports = {
   plugins: ['react'],
   parser: 'babel-eslint',
   rules: {
-    'react/prop-types': 0,
+    'react/prop-types': ['off'],
     'prettier/prettier': [
       'error',
       {

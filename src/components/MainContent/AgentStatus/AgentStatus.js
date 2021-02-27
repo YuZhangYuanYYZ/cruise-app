@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusCard } from './StatusCard';
+import { AgentCount } from './StatusCard/AgentCount';
 import './styles.scss';
 
 export function AgentStatus() {
@@ -17,6 +18,11 @@ export function AgentStatus() {
         iconName="icon-coffee"
         cardColor={'green'}
       ></StatusCard>
+      <AgentCount
+        allNumber={8}
+        physicalNumber={4}
+        virtualNumber={4}
+      ></AgentCount>
     </div>
   );
 }
