@@ -1,0 +1,12 @@
+@import '../../../styles/shared.scss';
+
+.customButton {
+  padding: 15px 30px;
+  line-height: 1;
+  font-size: $largeFont;
+  outline: 0;
+  border: none;
+
+  background-color: #fff;
+  cursor: pointer;
+}
