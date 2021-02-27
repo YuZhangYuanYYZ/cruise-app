@@ -1,4 +1,5 @@
 @import '../../../../../styles/shared.scss';
+
 .countContainer {
   display: flex;
   width: 30%;
@@ -23,7 +24,7 @@
     font-weight: bold;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: $desktop) {
     flex-direction: column;
     justify-content: space-evenly;
     .all,
@@ -42,7 +43,7 @@
       padding-top: 0;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: $phone) {
     flex-direction: row;
     .all,
     .physical,
