@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import { TopHeader } from './components/TopHeader';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">learn react</header>
+      <TopHeader></TopHeader>
     </div>
   );
 }
