@@ -1,11 +1,30 @@
 .statusCard {
   width: 30%;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  &.yellow {
+    background-color: #ff9a2a;
+  }
+  &.green {
+    background-color: #7fbc39;
+  }
   .status {
-    font-size: 18;
+    font-size: 18px bold;
     font-family: 'cruise';
     font-weight: bold;
+    align-self: flex-start;
+    padding-top: 14px;
   }
   .icon {
-    font-size: 80px;
+    font-size: 144px;
+    align-self: center;
+    opacity: 20%;
+  }
+  .countNumber {
+    font-size: 48px;
+    align-self: flex-end;
+    padding-bottom: 26px;
   }
 }
