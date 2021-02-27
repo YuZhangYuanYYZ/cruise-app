@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.scss';
 import { AgentStatus } from './AgentStatus';
 import { Button } from '../common/Button';
+import { NaveSearch } from './NaveSearch';
 
 export function MainContent() {
   return (
@@ -14,6 +15,7 @@ export function MainContent() {
             <Button text="Physicalll"></Button>
             <Button text="Virtual"></Button>
           </div>
+          <NaveSearch></NaveSearch>
         </div>
       </div>
     </div>

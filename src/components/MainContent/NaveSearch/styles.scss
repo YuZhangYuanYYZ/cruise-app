@@ -1,0 +1,30 @@
+@import '../../../styles/shared.scss';
+
+.searchPart {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  padding: 14px 8px 13px 46px;
+  align-self: center;
+  background-color: #fff;
+  .displyStyles {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .icon-search {
+    position: relative;
+    right: 150px;
+  }
+  .icon-th-card,
+  .icon-th-list,
+  .icon-search {
+    padding-left: $largerFont;
+  }
+  .icon-th-card,
+  .icon-th-list {
+    padding-left: $xsmallFont;
+  }
+  .active {
+    color: $lightskyBlue;
+  }
+}
