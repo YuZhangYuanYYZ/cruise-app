@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusCard } from './StatusCard';
-import { AgentCount } from './StatusCard/AgentCount';
+import { AgentCount } from './AgentCount';
 import './styles.scss';
 
 export function AgentStatus() {
