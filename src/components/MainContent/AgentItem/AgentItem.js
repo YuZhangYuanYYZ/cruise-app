@@ -1,30 +1,8 @@
 import React from 'react';
 import './styles.scss';
+import { AgentResources } from './AgentResources/AgentResources';
 
-const renderResources = (resources) => {
-  return (
-    resources &&
-    resources.map((resourceName) => {
-      return (
-        <li key={resourceName}>
-          <span>{resourceName}</span>
-          <span className="icon-trash"></span>
-        </li>
-      );
-    })
-  );
-};
-
-export function AgentItem({
-  imgSrc,
-  iconName,
-  name,
-  status,
-  infoIcon,
-  ip,
-  location,
-  resources,
-}) {
+export function AgentItem({ imgSrc, name, status, ip, location, resources }) {
   return (
     <div className="agentItem">
       <div className="itemlogo">
@@ -32,25 +10,21 @@ export function AgentItem({
       </div>
       <div className="agentItemInfo">
         <div className="itemInfo">
-          <span className={iconName}></span>
-          <span className="urlAddress">{name}</span>
-          <span className="agentStatus">{status}</span>
-          <span className={infoIcon}></span>
-          <span className="ipAddress">{ip}</span>
-          <span className="icon-folder"></span>
-          <span>{location}</span>
-        </div>
-        <div className="resources">
-          <div className="resourceItems">
-            <span className="icon-plus"></span>
-            <ul className="resourceNameList">{renderResources(resources)}</ul>
+          <div>
+            <span className="icon icon-desktop"></span>
+            <span className="urlAddress">{name}</span>
           </div>
-          {status === 'building' && (
-            <div className="denyButton">
-              <span className="icon-deny"></span>Deny
-            </div>
-          )}
+          <span className="agentStatus">{status}</span>
+          <div>
+            <span className="icon icon-info"></span>
+            <span className="ipAddress">{ip}</span>
+          </div>
+          <div>
+            <span className="icon icon-folder"></span>
+            <span>{location}</span>
+          </div>
         </div>
+        <AgentResources resources={resources} status={status} />
       </div>
     </div>
   );

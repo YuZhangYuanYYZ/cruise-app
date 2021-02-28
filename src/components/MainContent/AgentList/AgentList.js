@@ -19,13 +19,11 @@ export function AgentList() {
         {agents &&
           agents.map((agent, index) => {
             return (
-              <li key={index}>
+              <li key={agent.id}>
                 <AgentItem
                   imgSrc={img1logo}
-                  iconName={'icon-desktop'}
                   name={agent.name}
                   status={agent.status}
-                  infoIcon={'icon-info'}
                   ip={agent.ip}
                   location={agent.location}
                   resources={agent.resources}

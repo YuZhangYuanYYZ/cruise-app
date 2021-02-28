@@ -1,0 +1,33 @@
+@import '../../../../styles/shared.scss';
+.resources {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .resourceItems {
+    display: flex;
+  }
+  .resourceNameList {
+    display: flex;
+  }
+  .icon-plus {
+    padding: 4px 6px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: $lightskyBlue;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-right: 12px;
+    background-color: $lightGrey;
+  }
+  .icon-trash {
+    padding-left: 0.5rem;
+  }
+  .denyButton {
+    background-color: $lightskyBlue;
+    color: #fff;
+  }
+}
