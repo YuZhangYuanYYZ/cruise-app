@@ -12,3 +12,20 @@ export function getAgentsList() {
     }
   );
 }
+
+export function updateAgentInAPI(newAgent, itemId) {
+  const options = {
+    method: 'PUT',
+    headers: { 'content-type': 'application/json' },
+    data: JSON.stringify(newAgent),
+    url: `${API_BASE}/agents/${itemId}`,
+  };
+  return axios(options).then(
+    (response) => {
+      return response.data;
+    },
+    (err) => {
+      return err;
+    }
+  );
+}

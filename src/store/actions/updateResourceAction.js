@@ -1,26 +1,26 @@
-import { updateResource } from '../../services/resource/api';
+import { updateAgentInAPI } from '../../services/agents/api';
 
-export const UPDATE_RESOURCE_START = 'UPDATE_RESOURCE_START';
-export const UPDATE_RESOURCE_SUCCESS = 'UPDATE_RESOURCE_SUCCESS';
-export const UPDATE_RESOURCE_FAIL = 'UPDATE_RESOURCE_FAIL';
+export const UPDATE_AGENT_START = 'UPDATE_AGENT_START';
+export const UPDATE_AGENT_SUCCESS = 'UPDATE_AGENT_SUCCESS';
+export const UPDATE_AGENT_FAIL = 'UPDATE_AGENT_FAIL';
 
-export const updateResourceStart = () => {
+export const updateAgentStart = () => {
   return {
-    type: 'update_RESOURCE_START',
+    type: 'update_AGENT_START',
   };
 };
 
-export const updateResourceSuccess = (agent) => {
+export const updateAgentSuccess = (agent) => {
   return {
-    type: 'UPDATE_RESOURCE_SUCCESS',
+    type: 'UPDATE_AGENT_SUCCESS',
     payload: {
       agent,
     },
   };
 };
-export const updateResourceFail = (error) => {
+export const updateAgentFail = (error) => {
   return {
-    type: 'UPDATE_RESOURCE_FAIL',
+    type: 'UPDATE_AGENT_FAIL',
     payload: {
       error,
     },
@@ -29,14 +29,14 @@ export const updateResourceFail = (error) => {
 
 export function updateAgent(newAgent, itemId) {
   return function (dispatch) {
-    dispatch(updateResourceStart());
-    updateResource(newAgent, itemId).then(
+    dispatch(updateAgentStart());
+    updateAgentInAPI(newAgent, itemId).then(
       (agentData) => {
-        dispatch(updateResourceSuccess(agentData));
+        dispatch(updateAgentSuccess(agentData));
         return agentData;
       },
       (err) => {
-        dispatch(updateResourceFail(err));
+        dispatch(updateAgentFail(err));
         return err;
       }
     );

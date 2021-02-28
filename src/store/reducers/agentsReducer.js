@@ -4,9 +4,9 @@ import {
   REQUEST_AGENTS_FAIL,
 } from '../actions/agentAction';
 import {
-  UPDATE_RESOURCE_START,
-  UPDATE_RESOURCE_SUCCESS,
-  UPDATE_RESOURCE_FAIL,
+  UPDATE_AGENT_START,
+  UPDATE_AGENT_SUCCESS,
+  UPDATE_AGENT_FAIL,
 } from '../actions/updateResourceAction';
 
 const initialState = {
@@ -28,15 +28,15 @@ export function agentsReducer(state = initialState, action) {
       return { ...state, status: 'success', items: action.payload };
     case REQUEST_AGENTS_FAIL:
       return { ...state, status: 'fail' };
-    case UPDATE_RESOURCE_START:
+    case UPDATE_AGENT_START:
       return { ...state, status: 'loading' };
-    case UPDATE_RESOURCE_SUCCESS:
+    case UPDATE_AGENT_SUCCESS:
       return {
         ...state,
         status: 'success',
         items: convertNewAgents(state.items, action.payload.agent),
       };
-    case UPDATE_RESOURCE_FAIL:
+    case UPDATE_AGENT_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };
     default:
       return state;
