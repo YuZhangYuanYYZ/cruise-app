@@ -1,8 +1,40 @@
+@import '../../styles/shared.scss';
+
 .resourcePopup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 574px;
   border: 1px solid grey;
+  box-shadow: 0 3 5px (#000 30%);
   padding: 20px;
   position: absolute;
   top: 40px;
   z-index: 100;
   background-color: #fff;
+  input {
+    margin-top: 10px;
+    height: 25px;
+  }
+  .closeButton {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-size: $largeFont;
+    font-weight: bolder;
+    color: $darkskyBlue;
+    cursor: pointer;
+  }
+  .addAndCancelButtons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    button {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    #cancelButton {
+      background-color: $blackBlue;
+    }
+  }
 }

@@ -7,6 +7,14 @@ export function AddResourcePopup(props) {
   return (
     <div className="resourcePopup">
       <div>Separate Multiple resources by comma</div>
+      <span
+        className="closeButton close"
+        onClick={() => {
+          props.hidePopUp();
+        }}
+      >
+        X
+      </span>
       <input
         maxLength="20"
         value={resourceNames}
@@ -14,7 +22,7 @@ export function AddResourcePopup(props) {
           setResourceNames(e.target.value);
         }}
       ></input>
-      <div>
+      <div className="addAndCancelButtons">
         <Button
           onClick={() => {
             console.log(resourceNames);
@@ -23,6 +31,7 @@ export function AddResourcePopup(props) {
           Add Resources{' '}
         </Button>
         <Button
+          id="cancelButton"
           onClick={() => {
             props.hidePopUp();
           }}
@@ -30,13 +39,6 @@ export function AddResourcePopup(props) {
           Cancel
         </Button>
       </div>
-      <span
-        onClick={() => {
-          props.hidePopUp();
-        }}
-      >
-        X
-      </span>
     </div>
   );
 }
