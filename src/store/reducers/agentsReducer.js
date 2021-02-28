@@ -14,24 +14,9 @@ const initialState = {
   items: [],
 };
 
-function convertNewResource(agentId, resourceIndex, agents) {
-  const agent = agents.find((agent) => {
-    return agent.id === agentId;
-  });
-  const newResources = agent.resources.filter(
-    (resource, index) => index !== resourceIndex
-  );
-  const newAgent = { ...agent, resources: newResources };
-  return newAgent;
-}
-
-function convertNewAgents(itemId, resourceIndex, agents) {
-  return agents.map((agent) => {
-    if (agent.id === itemId) {
-      return convertNewResource(itemId, resourceIndex, agents);
-    } else {
-      return agent;
-    }
+function convertNewAgents(items, newAgent) {
+  return items.map((agent) => {
+    return agent.id === newAgent.id ? newAgent : agent;
   });
 }
 
@@ -49,11 +34,7 @@ export function agentsReducer(state = initialState, action) {
       return {
         ...state,
         status: 'success',
-        items: convertNewAgents(
-          action.payload.agentId,
-          action.payload.resourceIndex,
-          state.items
-        ),
+        items: convertNewAgents(state.items, action.payload.agent),
       };
     case UPDATE_RESOURCE_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };

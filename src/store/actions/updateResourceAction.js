@@ -10,12 +10,11 @@ export const updateResourceStart = () => {
   };
 };
 
-export const updateResourceSuccess = (agentId, resourceIndex) => {
+export const updateResourceSuccess = (agent) => {
   return {
     type: 'UPDATE_RESOURCE_SUCCESS',
     payload: {
-      agentId,
-      resourceIndex,
+      agent,
     },
   };
 };
@@ -28,13 +27,13 @@ export const updateResourceFail = (error) => {
   };
 };
 
-export function deletResource(agentId, resourceIndex) {
+export function updateAgent(newAgent, itemId) {
   return function (dispatch) {
     dispatch(updateResourceStart());
-    updateResource(agentId, resourceIndex).then(
-      (responseData) => {
-        dispatch(updateResourceSuccess(agentId, resourceIndex));
-        return responseData;
+    updateResource(newAgent, itemId).then(
+      (agentData) => {
+        dispatch(updateResourceSuccess(agentData));
+        return agentData;
       },
       (err) => {
         dispatch(updateResourceFail(err));

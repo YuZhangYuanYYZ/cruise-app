@@ -1,10 +1,24 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { deletResource } from '../../../../store/actions/updateResourceAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateAgent } from '../../../../store/actions/updateResourceAction';
 import './styles.scss';
 
+function convertNewResource(itemId, resourceIndex, agents) {
+  const newAgents = agents.map((agent) => {
+    if (agent.id === itemId) {
+      return agent.resources.filter(
+        (resource, index) => index !== resourceIndex
+      );
+    } else {
+      return agent;
+    }
+  });
+  const newAgent = newAgents.filter((agent) => agent.id === itemId);
+  return newAgent;
+}
 export function AgentResources({ itemId, status, resources }) {
   const dispatch = useDispatch();
+  const agents = useSelector((state) => state.agents.items);
   return (
     <div className="resources">
       <div className="resourceItems">
@@ -16,7 +30,12 @@ export function AgentResources({ itemId, status, resources }) {
                 <li
                   key={resourceName}
                   onClick={() => {
-                    dispatch(deletResource(itemId, resourceIndex));
+                    const newAgent = convertNewResource(
+                      itemId,
+                      resourceIndex,
+                      agents
+                    );
+                    dispatch(updateAgent(newAgent, itemId));
                   }}
                 >
                   <span>{resourceName}</span>
