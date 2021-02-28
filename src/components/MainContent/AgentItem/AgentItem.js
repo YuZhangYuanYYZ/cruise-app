@@ -1,5 +1,20 @@
 import React from 'react';
 import './styles.scss';
+
+const renderResources = (resources) => {
+  return (
+    resources &&
+    resources.map((resourceName) => {
+      return (
+        <li key={resourceName}>
+          <span>{resourceName}</span>
+          <span className="icon-trash"></span>
+        </li>
+      );
+    })
+  );
+};
+
 export function AgentItem({
   imgSrc,
   iconName,
@@ -8,7 +23,7 @@ export function AgentItem({
   infoIcon,
   ip,
   location,
-  resourceName,
+  resources,
 }) {
   return (
     <div className="agentItem">
@@ -26,16 +41,15 @@ export function AgentItem({
           <span>{location}</span>
         </div>
         <div className="resources">
-          <ul>
-            <li>
-              <span className="icon-plus"></span>
-              <span>{resourceName}</span>
-              <span className="icon-trash"></span>
-            </li>
-          </ul>
-          <div className="denyButton">
-            <span className="icon-deny"></span>Deny
+          <div className="resourceItems">
+            <span className="icon-plus"></span>
+            <ul className="resourceNameList">{renderResources(resources)}</ul>
           </div>
+          {status === 'building' && (
+            <div className="denyButton">
+              <span className="icon-deny"></span>Deny
+            </div>
+          )}
         </div>
       </div>
     </div>

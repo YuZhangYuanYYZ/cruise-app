@@ -30,16 +30,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    .resourceItems {
+      display: flex;
+    }
+    .resourceNameList {
+      display: flex;
+    }
+    .icon-plus {
+      padding: 5px;
+      margin-right: 10px;
+      color: #fff;
+      background-color: $lightskyBlue;
+    }
 
-  .icon-plus {
-    padding: 5px;
-    color: #fff;
-    background-color: $lightskyBlue;
-  }
-
-  .denyButton {
-    background-color: $lightskyBlue;
-    color: #fff;
+    .denyButton {
+      background-color: $lightskyBlue;
+      color: #fff;
+    }
   }
 }
