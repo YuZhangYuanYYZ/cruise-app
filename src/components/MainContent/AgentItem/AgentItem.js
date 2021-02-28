@@ -3,6 +3,7 @@ import './styles.scss';
 import { AgentResources } from './AgentResources/AgentResources';
 
 export function AgentItem({ imgSrc, name, status, ip, location, resources }) {
+  const colorName = status === 'idle' ? 'yellow' : 'green';
   return (
     <div className="agentItem">
       <div className="itemlogo">
@@ -14,7 +15,7 @@ export function AgentItem({ imgSrc, name, status, ip, location, resources }) {
             <span className="icon icon-desktop"></span>
             <span className="urlAddress">{name}</span>
           </div>
-          <span className="agentStatus">{status}</span>
+          <span className={`agentStatus ${colorName}`}>{status}</span>
           <div>
             <span className="icon icon-info"></span>
             <span className="ipAddress">{ip}</span>

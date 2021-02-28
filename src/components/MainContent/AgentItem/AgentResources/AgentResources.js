@@ -23,9 +23,9 @@ export function AgentResources({ status, resources }) {
         <ul className="resourceNameList">{renderResources(resources)}</ul>
       </div>
       {status === 'building' && (
-        <div className="denyButton">
+        <button className="denyButton">
           <span className="icon-deny"></span>Deny
-        </div>
+        </button>
       )}
     </div>
   );

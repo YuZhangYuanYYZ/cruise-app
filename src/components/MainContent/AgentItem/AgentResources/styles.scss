@@ -21,13 +21,16 @@
     align-items: center;
     padding: 0 0.5rem;
     margin-right: 12px;
-    background-color: $lightGrey;
+    background-color: #efefef;
   }
   .icon-trash {
     padding-left: 0.5rem;
   }
   .denyButton {
+    font-size: $smallFont;
+    height: 30px;
     background-color: $lightskyBlue;
     color: #fff;
+    border: 0;
   }
 }
