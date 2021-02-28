@@ -3,8 +3,8 @@ import './styles.scss';
 import { AgentStatus } from './AgentStatus';
 import { Button } from '../common/Button';
 import { NaveSearch } from './NaveSearch';
-import { AgentItem } from './AgentItem';
-import img1logo from './os_icons/windows.png';
+import { AgentList } from './AgentList';
+
 export function MainContent() {
   return (
     <div className="mainContent">
@@ -18,16 +18,7 @@ export function MainContent() {
           </div>
           <NaveSearch></NaveSearch>
         </div>
-        <AgentItem
-          imgSrc={img1logo}
-          iconName={'icon-desktop'}
-          name={'bjstdmngbdr10.thoughtworks.com'}
-          status={'idle'}
-          infoIcon={'icon-info'}
-          ip={'192.168.1.102'}
-          location={'/var/lib/cruise-agent'}
-          resourceName={'Firefox'}
-        ></AgentItem>
+        <AgentList></AgentList>
       </div>
     </div>
   );
