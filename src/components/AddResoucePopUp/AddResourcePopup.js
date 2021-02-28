@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles.scss';
+import { Button } from '../common/Button/Button';
 
 export function AddResourcePopup(props) {
   const [resourceNames, setResourceNames] = useState('');
@@ -13,20 +14,22 @@ export function AddResourcePopup(props) {
           setResourceNames(e.target.value);
         }}
       ></input>
-      <button
-        onClick={() => {
-          console.log(resourceNames);
-        }}
-      >
-        Add Resources
-      </button>
-      <button
-        onClick={() => {
-          props.hidePopUp();
-        }}
-      >
-        Cancel
-      </button>
+      <div>
+        <Button
+          onClick={() => {
+            console.log(resourceNames);
+          }}
+        >
+          Add Resources{' '}
+        </Button>
+        <Button
+          onClick={() => {
+            props.hidePopUp();
+          }}
+        >
+          Cancel
+        </Button>
+      </div>
       <span
         onClick={() => {
           props.hidePopUp();
