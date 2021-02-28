@@ -1,4 +1,7 @@
 .sideBarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 268px;
   color: #fff;
   background-color: #2d4054;
@@ -11,15 +14,22 @@
     color: #00b4cf;
   }
   .sideBarItem {
-    list-style: none;
     padding-left: 30px;
+    padding-top: 30px;
   }
   .history span {
     padding-left: 4px;
     display: inline-block;
     padding: 13px 0;
   }
-  .history li {
+  .sideBarItem li {
     padding: 4px 0;
+  }
+  .historyInfo {
+    padding: 0 0 15px 22px;
+    .testHistory li {
+      list-style: initial;
+      padding-top: 5px;
+    }
   }
 }

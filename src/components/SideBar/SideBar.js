@@ -18,23 +18,23 @@ export function SideBar() {
           <span className="icon-navicon"> </span> HELP
         </li>
       </ul>
-      <ul className="history">
+      <div className="historyInfo">
         <span>History</span>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-        <li>bjst/mgnst</li>
-      </ul>
+        <ul className="testHistory">
+          <li>bjstdmngbdr02/Acceptance_test</li>
+          <li>bjstdmngbdr03/Acceptance_test</li>
+          <li>bjstdmngbdr04/Acceptance_test</li>
+          <li>bjstdmngbdr05/Acceptance_test</li>
+          <li>bjstdmngbdr06/Acceptance_test</li>
+          <li>bjstdmngbdr07/Acceptance_test</li>
+          <li>bjstdmngbdr08/Acceptance_test</li>
+          <li>bjstdmngbdr09/Acceptance_test</li>
+          <li>bjstdmngbdr10/Acceptance_test</li>
+          <li>bjstdmngbdr11/Acceptance_test</li>
+          <li>bjstdmngbdr12/Acceptance_test</li>
+          <li>bjstdmngbdr13/Acceptance_test</li>
+        </ul>
+      </div>
     </div>
   );
 }

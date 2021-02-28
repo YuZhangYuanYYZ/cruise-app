@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './styles.scss';
 import { AgentItem } from '../AgentItem';
-import { requestAgents } from '../../../store/actions/index';
+import { requestAgents } from '../../../store/actions/agentAction';
 import centos from './os_icons/centos.png';
 import debin from './os_icons/debin.png';
 import suse from './os_icons/suse.png';
@@ -34,24 +34,23 @@ export function AgentList() {
     dispatch(requestAgents());
   }, [dispatch]);
   return (
-    <>
-      <ul>
-        {agents &&
-          agents.map((agent, index) => {
-            return (
-              <li key={agent.id}>
-                <AgentItem
-                  imgSrc={getLogo(agent.os)}
-                  name={agent.name}
-                  status={agent.status}
-                  ip={agent.ip}
-                  location={agent.location}
-                  resources={agent.resources}
-                ></AgentItem>
-              </li>
-            );
-          })}
-      </ul>
-    </>
+    <ul>
+      {agents &&
+        agents.map((agent, index) => {
+          return (
+            <li key={agent.id}>
+              <AgentItem
+                itemId={agent.id}
+                imgSrc={getLogo(agent.os)}
+                name={agent.name}
+                status={agent.status}
+                ip={agent.ip}
+                location={agent.location}
+                resources={agent.resources}
+              ></AgentItem>
+            </li>
+          );
+        })}
+    </ul>
   );
 }

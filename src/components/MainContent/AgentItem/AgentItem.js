@@ -2,7 +2,15 @@ import React from 'react';
 import './styles.scss';
 import { AgentResources } from './AgentResources/AgentResources';
 
-export function AgentItem({ imgSrc, name, status, ip, location, resources }) {
+export function AgentItem({
+  itemId,
+  imgSrc,
+  name,
+  status,
+  ip,
+  location,
+  resources,
+}) {
   const colorName = status === 'idle' ? 'yellow' : 'green';
   return (
     <div className="agentItem">
@@ -25,7 +33,7 @@ export function AgentItem({ imgSrc, name, status, ip, location, resources }) {
             <span>{location}</span>
           </div>
         </div>
-        <AgentResources resources={resources} status={status} />
+        <AgentResources itemId={itemId} resources={resources} status={status} />
       </div>
     </div>
   );
