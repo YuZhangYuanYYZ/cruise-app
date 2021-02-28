@@ -1,12 +1,19 @@
 @import '../../../styles/shared.scss';
 
 .customButton {
-  padding: 15px 30px;
-  line-height: 1;
-  font-size: $largeFont;
-  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  height: 30px;
+  padding: 1rem;
+  margin: 0;
+  outline: none;
+  color: #fff;
+  font-size: $smallFont;
+  background-color: $lightskyBlue;
 
-  background-color: #fff;
-  cursor: pointer;
+  .icon {
+    margin-right: 0.5rem;
+  }
 }
