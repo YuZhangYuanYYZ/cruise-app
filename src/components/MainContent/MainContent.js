@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.scss';
 import { AgentStatus } from './AgentStatus';
-import { Button } from '../common/Button';
 import { NaveSearch } from './NaveSearch';
 import { AgentList } from './AgentList';
+import { AgentFilter } from './AgentFilter/AgentFilter';
 
 export function MainContent() {
   return (
@@ -11,11 +11,7 @@ export function MainContent() {
       <AgentStatus />
       <div className="agentResourceContainer">
         <div className="navigationSearch">
-          <div className="navTabs">
-            <Button text="All"></Button>
-            <Button text="Physicalll"></Button>
-            <Button text="Virtual"></Button>
-          </div>
+          <AgentFilter />
           <NaveSearch></NaveSearch>
         </div>
         <AgentList></AgentList>
