@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAgent } from '../../../../store/actions/updateResourceAction';
+import { AddResourcePopup } from '../../../AddResoucePopUp';
 import './styles.scss';
 
 function convertNewResource(itemId, resourceIndex, agents) {
@@ -18,11 +19,19 @@ function convertNewResource(itemId, resourceIndex, agents) {
 }
 export function AgentResources({ itemId, status, resources }) {
   const dispatch = useDispatch();
+  const [showPopup, setShowPopup] = useState(false);
   const agents = useSelector((state) => state.agents.items);
   return (
     <div className="resources">
+      {showPopup && <AddResourcePopup hidePopUp={() => setShowPopup(false)} />}
       <div className="resourceItems">
-        <span className="icon-plus"></span>
+        <span
+          className="icon-plus"
+          onClick={() => {
+            console.log('on lick');
+            setShowPopup(true);
+          }}
+        ></span>
         <ul className="resourceNameList">
           {resources &&
             resources.map((resourceName, resourceIndex) => {

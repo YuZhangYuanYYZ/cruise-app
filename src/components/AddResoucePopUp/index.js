@@ -1,0 +1,1 @@
+export { AddResourcePopup } from './AddResourcePopup';
