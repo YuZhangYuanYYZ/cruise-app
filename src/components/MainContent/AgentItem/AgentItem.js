@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles.scss';
 export function AgentItem({
   imgSrc,
   iconName,
@@ -28,11 +28,12 @@ export function AgentItem({
         <div className="resources">
           <ul>
             <li>
+              <span className="icon-plus"></span>
               <span>{resourceName}</span>
               <span className="icon-trash"></span>
             </li>
           </ul>
-          <div className="deny-button">
+          <div className="denyButton">
             <span className="icon-deny"></span>Deny
           </div>
         </div>

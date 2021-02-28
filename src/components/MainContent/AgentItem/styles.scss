@@ -1,18 +1,45 @@
-@import '../../styles/shared.scss';
+@import '../../../styles/shared.scss';
 
 .agentItem {
   display: flex;
   margin-top: 20px;
-  display: flex;
+  padding: 10px;
+  background-color: #fff;
   .itemlogo {
     flex: 0 1 100px;
   }
   img {
-    size: 80px;
+    width: 80px;
   }
   .agentItemInfo {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     flex: 1 1 auto;
+  }
+  .itemInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .agentStatus {
+    background-color: $green;
+    color: #fff;
+  }
+  .resources {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon-plus {
+    padding: 5px;
+    color: #fff;
+    background-color: $lightskyBlue;
+  }
+
+  .denyButton {
+    background-color: $lightskyBlue;
+    color: #fff;
   }
 }

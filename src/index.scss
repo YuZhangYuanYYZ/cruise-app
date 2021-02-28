@@ -9,4 +9,12 @@ body {
   color: $blackBlue;
   font-family: 'Avenir, Arial, Helvetica, sans-serif';
   font-size: $smallFont;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
+  }
 }
