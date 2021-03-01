@@ -8,10 +8,12 @@ import {
   UPDATE_AGENT_SUCCESS,
   UPDATE_AGENT_FAIL,
 } from '../actions/updateResourceAction';
+import { SELECT_AGENT } from '../actions/selectAgentTypeAction';
 
 const initialState = {
   status: 'idle',
   items: [],
+  renderSelect: 'all',
 };
 
 function convertNewAgents(items, newAgent) {
@@ -38,6 +40,8 @@ export function agentsReducer(state = initialState, action) {
       };
     case UPDATE_AGENT_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };
+    case SELECT_AGENT:
+      return { ...state, renderSelect: action.payload };
     default:
       return state;
   }

@@ -33,8 +33,9 @@
       margin-right: 10px;
       cursor: pointer;
     }
-    #cancelButton {
+    button.cancelButton {
       background-color: $blackBlue;
+      box-shadow: none;
     }
   }
 }

@@ -25,18 +25,33 @@ function getLogo(os) {
       return windows;
   }
 }
+
+const filterAgents = (agents) => {
+  switch (agents.renderSelect) {
+    case 'all':
+      return agents.items;
+    case 'physical':
+      return agents.items.filter((item) => item.type === 'physical');
+    case 'virtual':
+      return agents.items.filter((item) => item.type === 'virtual');
+    default:
+      return agents.items;
+  }
+};
 export function AgentList() {
   const dispatch = useDispatch();
   let agents = useSelector((state) => {
-    return state.agents.items;
+    return filterAgents(state.agents);
   });
+
   useEffect(() => {
     dispatch(requestAgents());
   }, [dispatch]);
+
   return (
     <ul>
       {agents &&
-        agents.map((agent, index) => {
+        agents.map((agent) => {
           return (
             <li key={agent.id}>
               <AgentItem

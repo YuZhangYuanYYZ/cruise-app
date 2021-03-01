@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusCard } from './StatusCard';
 import { AgentCount } from './AgentCount';
+import { requestAgents } from '../../../store/actions/agentAction';
 import './styles.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
 export function AgentStatus() {
+  const dispatch = useDispatch();
+  let agents = useSelector((state) => {
+    return state.agents.items;
+  });
+  const allNumber = agents.length;
+  const physicalNumber = agents.filter((item) => item.type === 'physical')
+    .length;
+  const virtualNumber = agents.filter((item) => item.type === 'virtual').length;
+
+  useEffect(() => {
+    dispatch(requestAgents());
+  }, [dispatch]);
   return (
     <div className="agentStatus">
       <StatusCard
@@ -19,9 +33,9 @@ export function AgentStatus() {
         cardColor={'green'}
       ></StatusCard>
       <AgentCount
-        allNumber={8}
-        physicalNumber={4}
-        virtualNumber={4}
+        allNumber={allNumber}
+        physicalNumber={physicalNumber}
+        virtualNumber={virtualNumber}
       ></AgentCount>
     </div>
   );

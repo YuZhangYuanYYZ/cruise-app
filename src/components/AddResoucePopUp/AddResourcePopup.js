@@ -31,7 +31,7 @@ export function AddResourcePopup(props) {
           Add Resources{' '}
         </Button>
         <Button
-          id="cancelButton"
+          className="cancelButton"
           onClick={() => {
             props.hidePopUp();
           }}
