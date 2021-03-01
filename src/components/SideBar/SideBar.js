@@ -1,9 +1,13 @@
 import React from 'react';
 import './styles.scss';
 
-export function SideBar() {
+export function SideBar(props) {
   return (
-    <div className="sideBarContainer">
+    <div
+      className={`sideBarContainer ${
+        props.sideBarVisibility ? 'showSideBar' : 'hideSideBar'
+      }`}
+    >
       <ul className="sideBarItem">
         <li className="item">
           <span className="icon-dashboard"> </span> DASHBOARD

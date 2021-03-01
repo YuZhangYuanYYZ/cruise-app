@@ -1,0 +1,15 @@
+.appFooter {
+  position: fixed;
+  height: 20px;
+  font-size: 12px;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+  line-height: 20px;
+  color: #84909b;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px #e6e6e6;
+}

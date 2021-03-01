@@ -20,9 +20,11 @@ function convertNewResource(itemId, newResourceName, agents) {
   const newAgent = newAgents.filter((agent) => agent.id === itemId)[0];
   return newAgent;
 }
+
 export function AddResourcePopup(props) {
   const dispatch = useDispatch();
   const [resourceNames, setResourceNames] = useState('');
+
   return (
     <div className="resourcePopup">
       <div>Separate Multiple resources by comma</div>
@@ -52,7 +54,7 @@ export function AddResourcePopup(props) {
             setResourceNames('');
           }}
         >
-          Add Resources{' '}
+          Add Resources
         </Button>
         <Button
           id="cancelButton"

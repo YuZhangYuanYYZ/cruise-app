@@ -3,9 +3,15 @@ import avartaImg from './assets/avatar.jpg';
 import './styles.scss';
 import titleLogo from './assets/logo/logo.svg';
 
-export function TopHeader() {
+export function TopHeader(props) {
   return (
     <div className="topHeader">
+      <div
+        className="icon-navicon"
+        onClick={() => {
+          props.setsideBarVisibility((sideBarVisibility) => !sideBarVisibility);
+        }}
+      ></div>
       <div className="headerTitle">
         <img
           className="headerTitleLogo"

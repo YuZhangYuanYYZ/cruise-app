@@ -1,10 +1,17 @@
+@import '../../styles/shared.scss';
 .topHeader {
   background-color: white;
   box-shadow: 0 1px 5px #e6e6e6;
   border: 1px solid #e6e6e6;
   padding: 12px 10%;
   text-align: center;
-
+  .icon-navicon {
+    float: left;
+    cursor: pointer;
+  }
+  .icon-navicon {
+    display: none;
+  }
   .headerTitle {
     display: inline-block;
     .headerTitleLogo {
@@ -17,5 +24,19 @@
     height: 40px;
     border-radius: 25px;
     float: right;
+  }
+}
+
+@media (max-width: $tablet) {
+  .topHeader {
+    padding: 12px 1%;
+    .icon-navicon {
+      float: left;
+      font-size: 20px;
+      padding-top: 10px;
+    }
+    .icon-navicon {
+      display: block;
+    }
   }
 }

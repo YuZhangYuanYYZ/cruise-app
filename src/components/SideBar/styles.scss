@@ -1,3 +1,4 @@
+@import '../../styles/shared.scss';
 .sideBarContainer {
   display: flex;
   flex-direction: column;
@@ -5,7 +6,6 @@
   width: 268px;
   color: #fff;
   background-color: #2d4054;
-
   .item {
     margin-top: 8px;
   }
@@ -30,6 +30,18 @@
     .testHistory li {
       list-style: initial;
       padding-top: 5px;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .sideBarContainer {
+    display: none;
+    &.showSideBar {
+      display: block;
+      position: absolute;
+      z-index: 50;
+      height: 100%;
     }
   }
 }
