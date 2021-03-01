@@ -6,7 +6,13 @@ import { useDispatch } from 'react-redux';
 function convertNewResource(itemId, newResourceName, agents) {
   const newAgents = agents.map((agent) => {
     if (agent.id === itemId) {
-      return { ...agent, resources: [...agent.resources, newResourceName] };
+      const newResources = newResourceName
+        .split(',')
+        .map((name) => name.trim());
+      return {
+        ...agent,
+        resources: [...agent.resources, ...newResources],
+      };
     } else {
       return agent;
     }
@@ -25,12 +31,13 @@ export function AddResourcePopup(props) {
         onClick={props.hidePopUp}
       ></span>
       <input
-        maxLength="20"
+        maxLength="28"
+        placeholder="e.g.Chrome,Firefox"
         value={resourceNames}
         onChange={(e) => {
           setResourceNames(e.target.value);
         }}
-      ></input>
+      />
       <div className="addAndCancelButtons">
         <Button
           onClick={() => {
@@ -40,6 +47,7 @@ export function AddResourcePopup(props) {
               props.agents
             );
             dispatch(updateAgent(newAgent, props.itemId));
+            setResourceNames('');
           }}
         >
           Add Resources{' '}

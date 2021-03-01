@@ -7,9 +7,10 @@ import './styles.scss';
 function convertNewResource(itemId, resourceIndex, agents) {
   const newAgents = agents.map((agent) => {
     if (agent.id === itemId) {
-      return agent.resources.filter(
+      const newResources = agent.resources.filter(
         (resource, index) => index !== resourceIndex
       );
+      return { ...agent, resources: newResources };
     } else {
       return agent;
     }
@@ -45,7 +46,7 @@ export function AgentResources({ itemId, status, resources }) {
             resources.map((resourceName, resourceIndex) => {
               return (
                 <li
-                  key={resourceName}
+                  key={resourceName + resourceIndex}
                   onClick={() => {
                     const newAgent = convertNewResource(
                       itemId,
