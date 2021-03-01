@@ -38,6 +38,8 @@ export function AddResourcePopup(props) {
           setResourceNames(e.target.value);
         }}
       />
+      <span className="upperTriangle"></span>
+      <span className="upperTriangleCover"></span>
       <div className="addAndCancelButtons">
         <Button
           onClick={() => {

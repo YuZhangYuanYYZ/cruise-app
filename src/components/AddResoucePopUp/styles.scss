@@ -5,16 +5,35 @@
   flex-direction: column;
   position: relative;
   width: 574px;
-  border: 1px solid grey;
+  border: 1px solid $lightskyBlue;
   box-shadow: 0 3 5px (#000 30%);
   padding: 20px;
   position: absolute;
-  top: 40px;
+  top: 50px;
+  left: -15px;
   z-index: 100;
   background-color: #fff;
   input {
     margin-top: 10px;
     height: 25px;
+  }
+  .upperTriangle {
+    position: absolute;
+    left: 16px;
+    top: -21px;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-color: transparent transparent $lightskyBlue;
+  }
+  .upperTriangleCover {
+    position: absolute;
+    left: 16px;
+    top: -20px;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-color: transparent transparent #fff;
   }
   .closeButton {
     position: absolute;
@@ -22,7 +41,7 @@
     right: 6px;
     font-size: $largeFont;
     font-weight: bolder;
-    color: $darkskyBlue;
+    color: $lightskyBlue;
     cursor: pointer;
   }
   .addAndCancelButtons {
