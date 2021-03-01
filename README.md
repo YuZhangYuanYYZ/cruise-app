@@ -12,6 +12,7 @@ A frontend app which shows the resources.
 ## Available Scripts
 
 In the project directory, you can run:
+yarn install to add all the dependencies;
 
 ### `yarn start`
 

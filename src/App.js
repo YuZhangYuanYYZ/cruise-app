@@ -9,8 +9,6 @@ import store from './store';
 
 function App() {
   const [sideBarVisibility, setsideBarVisibility] = useState(false);
-  console.log('renderAPP', sideBarVisibility);
-
   return (
     <Provider store={store}>
       <div className="App">
