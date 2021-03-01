@@ -4,17 +4,14 @@ import { Button } from '../common/Button/Button';
 
 export function AddResourcePopup(props) {
   const [resourceNames, setResourceNames] = useState('');
+
   return (
     <div className="resourcePopup">
       <div>Separate Multiple resources by comma</div>
       <span
-        className="closeButton close"
-        onClick={() => {
-          props.hidePopUp();
-        }}
-      >
-        X
-      </span>
+        className="icon-close closeButton close"
+        onClick={props.hidePopUp}
+      ></span>
       <input
         maxLength="20"
         value={resourceNames}
@@ -23,13 +20,7 @@ export function AddResourcePopup(props) {
         }}
       ></input>
       <div className="addAndCancelButtons">
-        <Button
-          onClick={() => {
-            console.log(resourceNames);
-          }}
-        >
-          Add Resources{' '}
-        </Button>
+        <Button>Add Resources </Button>
         <Button
           id="cancelButton"
           onClick={() => {
