@@ -29,7 +29,6 @@ export function AgentFilter(props) {
     return state.agents.renderSelect;
   });
 
-  console.log('agents.renderSelect', currentRenderSelect);
   return (
     <div className="navTabs">
       {renderFilters(dispatch, currentRenderSelect)}

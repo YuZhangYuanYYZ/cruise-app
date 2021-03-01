@@ -14,7 +14,7 @@ function convertNewResource(itemId, resourceIndex, agents) {
       return agent;
     }
   });
-  const newAgent = newAgents.filter((agent) => agent.id === itemId);
+  const newAgent = newAgents.filter((agent) => agent.id === itemId)[0];
   return newAgent;
 }
 export function AgentResources({ itemId, status, resources }) {
@@ -26,12 +26,17 @@ export function AgentResources({ itemId, status, resources }) {
   }, []);
   return (
     <div className="resources">
-      {showPopup && <AddResourcePopup hidePopUp={hidePopUp} />}
+      {showPopup && (
+        <AddResourcePopup
+          hidePopUp={hidePopUp}
+          agents={agents}
+          itemId={itemId}
+        />
+      )}
       <div className="resourceItems">
         <span
           className="icon-plus"
           onClick={() => {
-            console.log('on lick');
             setShowPopup(true);
           }}
         ></span>
