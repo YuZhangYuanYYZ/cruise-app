@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
-import { StatusCard } from './StatusCard';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { AgentCount } from './AgentCount';
-import { requestAgents } from '../../../store/actions/agentAction';
+import { StatusCard } from './StatusCard';
 import './styles.scss';
-import { useSelector, useDispatch } from 'react-redux';
 
 export function AgentStatus() {
-  const dispatch = useDispatch();
   let agents = useSelector((state) => {
     return state.agents.items;
   });
@@ -21,9 +19,6 @@ export function AgentStatus() {
 
   const idleAgents = agents.filter((item) => item.status === 'idle').length;
 
-  useEffect(() => {
-    dispatch(requestAgents());
-  }, [dispatch]);
   return (
     <div className="agentStatus">
       <StatusCard
