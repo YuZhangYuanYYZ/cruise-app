@@ -15,6 +15,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
+    'plugin:sonarjs/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {

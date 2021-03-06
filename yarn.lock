@@ -4695,6 +4695,11 @@ eslint-plugin-react@^7.21.5:
     resolve "^1.18.1"
     string.prototype.matchall "^4.0.2"
 
+eslint-plugin-sonarjs@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-sonarjs/download/eslint-plugin-sonarjs-0.6.0.tgz#3ee3b04f1f9587ef02b255a5d2f96e500c4789bb"
+  integrity sha1-PuOwTx+Vh+8CslWl0vluUAxHibs=
+
 eslint-plugin-testing-library@^3.9.2:
   version "3.10.1"
   resolved "https://registry.npm.taobao.org/eslint-plugin-testing-library/download/eslint-plugin-testing-library-3.10.1.tgz#4dd02306d601c3238fdabf1d1dbc5f2a8e85d531"
