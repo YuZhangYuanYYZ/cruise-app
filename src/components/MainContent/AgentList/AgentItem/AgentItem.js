@@ -3,7 +3,7 @@ import './styles.scss';
 import { AgentResources } from './AgentResources/AgentResources';
 
 export function AgentItem({
-  itemId,
+  agentId,
   imgSrc,
   name,
   status,
@@ -33,7 +33,11 @@ export function AgentItem({
             <span>{location}</span>
           </div>
         </div>
-        <AgentResources itemId={itemId} resources={resources} status={status} />
+        <AgentResources
+          agentId={agentId}
+          resources={resources}
+          status={status}
+        />
       </div>
     </div>
   );

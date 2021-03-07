@@ -1,11 +1,12 @@
 import React from 'react';
-import './styles.scss';
+import { AgentFilter } from './AgentFilter/AgentFilter';
+import { AgentList } from './AgentList';
 import { AgentStatus } from './AgentStatus';
 import { NaveSearch } from './NaveSearch';
-import { AgentList } from './AgentList';
-import { AgentFilter } from './AgentFilter/AgentFilter';
-
+import './styles.scss';
+// import { AddResourcePopup } from '../../AddResoucePopUp/AddResourcePopup';
 export function MainContent() {
+  // const agents = useSelector((state) => state.agents);
   return (
     <div className="mainContent">
       <AgentStatus />
