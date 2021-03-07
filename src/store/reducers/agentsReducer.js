@@ -10,8 +10,11 @@ import {
 } from '../actions/updateResourceAction';
 import { SELECT_AGENT } from '../actions/selectAgentTypeAction';
 
+import { ADD_AGENT_POPUP } from '../actions/addAgentPopupAction';
+
 const initialState = {
   status: 'idle',
+  addAgentPopupVisibility: false,
   items: [],
   renderSelect: 'all',
 };
@@ -24,6 +27,11 @@ function convertNewAgents(items, newAgent) {
 
 export function agentsReducer(state = initialState, action) {
   switch (action.type) {
+    case ADD_AGENT_POPUP:
+      return {
+        ...state,
+        addAgentPopupVisibility: !state.addAgentPopupVisibility,
+      };
     case REQUEST_AGENTS_START:
       return { ...state, status: 'loading' };
     case REQUEST_AGENTS_SUCCESS:
