@@ -2,16 +2,13 @@ import React from 'react';
 import './styles.scss';
 import { sentPopupInfoAction } from '../../../../../store/actions/sentPopupInfoAction';
 import { useDispatch } from 'react-redux';
-import { useComponentVisible } from './hooks/useComponentVisible';
 export function AgentResources({ agentId, status, resources }) {
   const dispatch = useDispatch();
-  const { setIsComponentVisible } = useComponentVisible(true, 'icon-plus');
   return (
     <div className="resources">
       <div className="resourceItems">
         <span
           onClick={() => {
-            setIsComponentVisible(true);
             dispatch(sentPopupInfoAction({ agentId }));
           }}
           className="icon-plus"

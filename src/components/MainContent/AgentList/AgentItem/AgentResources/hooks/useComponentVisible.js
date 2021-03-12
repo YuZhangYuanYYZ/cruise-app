@@ -13,6 +13,8 @@ export function useComponentVisible(initialIsVisible, exceptClassName) {
       !ref.current.contains(event.target) &&
       event.target.className !== exceptClassName
     ) {
+      setIsComponentVisible(false);
+    } else if (event.target.className === exceptClassName) {
       setIsComponentVisible(!isComponentVisible);
     }
   };

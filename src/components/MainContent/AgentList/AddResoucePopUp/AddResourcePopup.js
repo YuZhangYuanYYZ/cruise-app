@@ -8,15 +8,15 @@ import { useComponentVisible } from '../AgentItem/AgentResources/hooks/useCompon
 export function AddResourcePopup(props) {
   const dispatch = useDispatch();
   const [resourceNames, setResourceNames] = useState('');
-  const { visibility, agentId } = useSelector((state) => state.popupInfo);
+  const { agentId } = useSelector((state) => state.popupInfo);
   const {
     ref,
     isComponentVisible,
     setIsComponentVisible,
-  } = useComponentVisible(true, 'icon-plus');
+  } = useComponentVisible(false, 'icon-plus');
   return (
     <div className="popupContainer" ref={ref}>
-      {visibility && isComponentVisible && (
+      {isComponentVisible && (
         <div className="resourcePopup">
           <div>Separate Multiple resources by comma</div>
           <span
