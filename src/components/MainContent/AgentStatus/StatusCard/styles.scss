@@ -23,10 +23,24 @@
     font-size: 144px;
     align-self: center;
     opacity: 20%;
+    &.icon-cog {
+      animation: circle 4s infinite linear;
+    }
+  }
+  @keyframes circle {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
   .countNumber {
     font-size: $xlargeFont;
     align-self: flex-end;
     padding-bottom: 26px;
+  }
+  .icon-cog {
+    animation: circle 2s infinite linear;
   }
 }
