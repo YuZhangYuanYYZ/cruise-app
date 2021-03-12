@@ -8,16 +8,26 @@ export function AgentStatus() {
   let agents = useSelector((state) => {
     return state.agents.items;
   });
-  const allAgentsNumber = agents.length;
-  const physicalAgentsNumber = agents.filter((item) => item.type === 'physical')
-    .length;
-  const virtualAgentsNumber = agents.filter((item) => item.type === 'virtual')
-    .length;
+  console.log(agents, 'agents');
+  const allAgentsNumber = agents.length > 0 ? agents.length : 0;
+  const physicalAgentsNumber =
+    agents.length > 0
+      ? agents.filter((item) => item.type === 'physical').length
+      : 0;
+  const virtualAgentsNumber =
+    agents.length > 0
+      ? agents.filter((item) => item.type === 'virtual').length
+      : 0;
 
-  const buildingAgents = agents.filter((item) => item.status === 'building')
-    .length;
+  const buildingAgents =
+    agents.length > 0
+      ? agents.filter((item) => item.status === 'building').length
+      : 0;
 
-  const idleAgents = agents.filter((item) => item.status === 'idle').length;
+  const idleAgents =
+    agents.length > 0
+      ? agents.filter((item) => item.status === 'idle').length
+      : 0;
 
   return (
     <div className="agentStatus">

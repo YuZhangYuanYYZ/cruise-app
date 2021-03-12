@@ -21,7 +21,7 @@ export function AgentList() {
     <>
       <AddResourcePopup agents={agents} />
       <ul>
-        {agents &&
+        {agents.length > 0 &&
           agents.map((agent) => {
             console.log('agent', agent);
             return (

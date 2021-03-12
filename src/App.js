@@ -21,7 +21,7 @@ export function App() {
         <BrowserRouter>
           <div className="content">
             <SideBar sideBarVisibility={sideBarVisibility}></SideBar>
-            <Router></Router>
+            {store ? <Router></Router> : null}
           </div>
         </BrowserRouter>
       </div>
