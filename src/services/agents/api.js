@@ -29,3 +29,20 @@ export function updateAgentInAPI(newAgent, itemId) {
     }
   );
 }
+
+export function postAgentToAPI(newAgent) {
+  const options = {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    data: JSON.stringify(newAgent),
+    url: `${API_BASE}/agents`,
+  };
+  return axios(options).then(
+    (response) => {
+      return response.data;
+    },
+    (err) => {
+      return err;
+    }
+  );
+}

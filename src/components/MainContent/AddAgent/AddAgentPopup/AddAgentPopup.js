@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addAgentInfo } from '../../../../store/actions/AddAgentInfoAction';
 
+function composeNewAgent({ name, os, status, type, ip }) {
+  const newAgent = {
+    name: name,
+    os: os,
+    status: status,
+    type: type,
+    ip: ip,
+  };
+  return newAgent;
+}
 export function AddAgentPopup() {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [agent, setAgent] = useState({});
   return (
     <form>
@@ -36,7 +47,8 @@ export function AddAgentPopup() {
       <div className="agentStatus">
         <input
           type="radio"
-          name="status"
+          value="building"
+          checked={agent.status === 'building'}
           onChange={(e) =>
             setAgent((agent) => ({ ...agent, status: e.target.value }))
           }
@@ -44,7 +56,8 @@ export function AddAgentPopup() {
         building
         <input
           type="radio"
-          name="status"
+          value="idle"
+          checked={agent.status === 'idle'}
           onChange={(e) =>
             setAgent((agent) => ({ ...agent, status: e.target.value }))
           }
@@ -77,7 +90,8 @@ export function AddAgentPopup() {
       <button
         onClick={(e) => {
           e.preventDefault();
-          //   dispatch(AddAgentInfo(agent));
+          const newAgent = composeNewAgent(agent);
+          dispatch(addAgentInfo(newAgent));
         }}
       >
         提交
