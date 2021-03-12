@@ -19,7 +19,7 @@ export function AgentList() {
 
   return (
     <>
-      <AddResourcePopup agents={agents} />;
+      <AddResourcePopup agents={agents} />
       <ul>
         {agents &&
           agents.map((agent) => {

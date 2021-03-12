@@ -1,14 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 
-export function useComponentVisible(initialIsVisible) {
+export function useComponentVisible(initialIsVisible, exceptClassName) {
   const [isComponentVisible, setIsComponentVisible] = useState(
     initialIsVisible
   );
   const ref = useRef(null);
+  console.log(isComponentVisible, 'isComponentVisible0000');
 
   const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setIsComponentVisible(false);
+    if (
+      ref.current &&
+      !ref.current.contains(event.target) &&
+      event.target.className !== exceptClassName
+    ) {
+      setIsComponentVisible(!isComponentVisible);
     }
   };
 

@@ -4,20 +4,24 @@ import './styles.scss';
 import { Button } from '../../../common/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { convertNewResource } from './util';
-
+import { useComponentVisible } from '../AgentItem/AgentResources/hooks/useComponentVisible';
 export function AddResourcePopup(props) {
   const dispatch = useDispatch();
   const [resourceNames, setResourceNames] = useState('');
   const { visibility, agentId } = useSelector((state) => state.popupInfo);
-
+  const {
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+  } = useComponentVisible(true, 'icon-plus');
   return (
-    <>
-      {visibility && (
+    <div className="popupContainer" ref={ref}>
+      {visibility && isComponentVisible && (
         <div className="resourcePopup">
           <div>Separate Multiple resources by comma</div>
           <span
             className="icon-close closeButton close"
-            onClick={props.hidePopUp}
+            onClick={() => setIsComponentVisible(false)}
           ></span>
           <input
             maxLength="28"
@@ -45,15 +49,13 @@ export function AddResourcePopup(props) {
             </Button>
             <Button
               id="cancelButton"
-              onClick={() => {
-                props.hidePopUp();
-              }}
+              onClick={() => setIsComponentVisible(false)}
             >
               Cancel
             </Button>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
