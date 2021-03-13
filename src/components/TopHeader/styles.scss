@@ -38,7 +38,7 @@
       border-radius: 25px;
       cursor: pointer;
     }
-    .showUserFunction {
+    .showUserDetail {
       position: absolute;
       right: -32px;
       display: flex;
@@ -61,7 +61,7 @@
         background-color: #efefef;
       }
     }
-    .hideUserFunction {
+    .hideUserDetail {
       display: none;
     }
   }

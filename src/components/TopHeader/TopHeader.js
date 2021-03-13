@@ -28,7 +28,7 @@ export function TopHeader(props) {
           ></img>
           <div
             className={`${
-              logoClickStatus ? 'showUserFunction' : 'hideUserFunction'
+              logoClickStatus ? 'showUserDetail' : 'hideUserDetail'
             }`}
           >
             <span className="icon-id-card"> Profile</span>
