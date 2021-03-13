@@ -2,16 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addAgentInfo } from '../../../../store/actions/AddAgentInfoAction';
 
-function composeNewAgent({ name, os, status, type, ip }) {
-  const newAgent = {
-    name: name,
-    os: os,
-    status: status,
-    type: type,
-    ip: ip,
-  };
-  return newAgent;
-}
 export function AddAgentPopup() {
   const dispatch = useDispatch();
   const [agent, setAgent] = useState({});
@@ -90,7 +80,7 @@ export function AddAgentPopup() {
       <button
         onClick={(e) => {
           e.preventDefault();
-          const newAgent = composeNewAgent(agent);
+          const newAgent = agent;
           dispatch(addAgentInfo(newAgent));
         }}
       >
