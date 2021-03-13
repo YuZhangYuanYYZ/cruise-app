@@ -13,7 +13,7 @@ export function useComponentVisible(initialIsVisible, exceptClassName) {
     ) {
       setIsComponentVisible(false);
     } else if (event.target.className === exceptClassName) {
-      setIsComponentVisible(!isComponentVisible);
+      setIsComponentVisible(true);
     }
   };
 
