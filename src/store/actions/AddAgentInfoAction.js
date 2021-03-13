@@ -28,7 +28,6 @@ export function addAgentInfo(newAgent) {
     dispatch(addAgentInfoStart());
     postAgentToAPI(newAgent).then(
       (response) => {
-        console.log('response', response);
         dispatch(addAgentInfoSuccess(response));
       },
       (err) => {

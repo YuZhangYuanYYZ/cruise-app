@@ -8,7 +8,6 @@ export function AgentStatus() {
   let agents = useSelector((state) => {
     return state.agents.items;
   });
-  console.log(agents, 'agents');
   const allAgentsNumber = agents.length > 0 ? agents.length : 0;
   const physicalAgentsNumber =
     agents.length > 0

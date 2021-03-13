@@ -5,8 +5,6 @@ export function useComponentVisible(initialIsVisible, exceptClassName) {
     initialIsVisible
   );
   const ref = useRef(null);
-  console.log(isComponentVisible, 'isComponentVisible0000');
-
   const handleClickOutside = (event) => {
     if (
       ref.current &&

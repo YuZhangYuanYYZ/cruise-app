@@ -23,7 +23,6 @@ export function AgentList() {
       <ul>
         {agents.length > 0 &&
           agents.map((agent) => {
-            console.log('agent', agent);
             return (
               <li key={agent.id}>
                 <AgentItem
