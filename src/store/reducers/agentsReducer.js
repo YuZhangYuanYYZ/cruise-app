@@ -10,9 +10,9 @@ import {
 } from '../actions/updateResourceAction';
 
 import {
-  ADD_AGENT_INFO_START,
-  ADD_AGENT_INFO_SUCCESS,
-  ADD_AGENT_INFO_FAIL,
+  CREATE_AGENT_START,
+  CREATE_AGENT_SUCCESS,
+  CREATE_AGENT_FAIL,
 } from '../actions/AddAgentInfoAction';
 import { SELECT_AGENT } from '../actions/selectAgentTypeAction';
 
@@ -55,11 +55,11 @@ export function agentsReducer(state = initialState, action) {
     case UPDATE_AGENT_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };
 
-    case ADD_AGENT_INFO_START:
+    case CREATE_AGENT_START:
       return { ...state, status: 'loading' };
-    case ADD_AGENT_INFO_SUCCESS:
+    case CREATE_AGENT_SUCCESS:
       return { ...state, items: [...state.items, action.payload] };
-    case ADD_AGENT_INFO_FAIL:
+    case CREATE_AGENT_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };
     case SELECT_AGENT:
       return { ...state, renderSelect: action.payload };

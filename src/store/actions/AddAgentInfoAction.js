@@ -1,24 +1,24 @@
 import { postAgentToAPI } from '../../services/agents/api';
-export const ADD_AGENT_INFO_START = 'ADD_AGENT_INFO_START';
-export const ADD_AGENT_INFO_SUCCESS = 'ADD_AGENT_INFO_SUCCESS';
-export const ADD_AGENT_INFO_FAIL = 'ADD_AGENT_INFO_FAIL';
+export const CREATE_AGENT_START = 'CREATE_AGENT_START';
+export const CREATE_AGENT_SUCCESS = 'CREATE_AGENT_SUCCESS';
+export const CREATE_AGENT_FAIL = 'CREATE_AGENT_FAIL';
 
 export function addAgentInfoStart() {
   return {
-    type: ADD_AGENT_INFO_START,
+    type: CREATE_AGENT_START,
   };
 }
 
 export function addAgentInfoSuccess(payload) {
   return {
-    type: ADD_AGENT_INFO_SUCCESS,
+    type: CREATE_AGENT_SUCCESS,
     payload,
   };
 }
 
 export function addAgentInfoFail(payload) {
   return {
-    type: ADD_AGENT_INFO_FAIL,
+    type: CREATE_AGENT_FAIL,
     payload,
   };
 }
