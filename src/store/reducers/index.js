@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { agentsReducer } from './agentsReducer';
-import { popupInfoReducer } from './popupInfoReducer';
+import { getAgentIdReducer } from './getAgentIdReducer';
 
 export default combineReducers({
   agents: agentsReducer,
-  popupInfo: popupInfoReducer,
+  agentId: getAgentIdReducer,
 });

@@ -1,11 +1,11 @@
-import { SENT_POPUP_INFO } from '../actions/sentPopupInfoAction';
+import { GET_AGENT_ID } from '../actions/getAgentIdAction';
 
 const initialState = {
   agentId: null,
 };
-export function popupInfoReducer(state = initialState, action) {
+export function getAgentIdReducer(state = initialState, action) {
   switch (action.type) {
-    case SENT_POPUP_INFO:
+    case GET_AGENT_ID:
       return {
         ...state,
         agentId: action.payload.agentId,

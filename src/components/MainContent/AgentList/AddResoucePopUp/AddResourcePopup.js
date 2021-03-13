@@ -8,7 +8,7 @@ import { useComponentVisible } from '../AgentItem/AgentResources/hooks/useCompon
 export function AddResourcePopup(props) {
   const dispatch = useDispatch();
   const [resourceNames, setResourceNames] = useState('');
-  const { agentId } = useSelector((state) => state.popupInfo);
+  const { agentId } = useSelector((state) => state.agentId);
   const {
     ref,
     isComponentVisible,

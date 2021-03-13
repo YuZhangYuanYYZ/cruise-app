@@ -6,7 +6,7 @@ export const UPDATE_AGENT_FAIL = 'UPDATE_AGENT_FAIL';
 
 export const updateAgentStart = () => {
   return {
-    type: 'update_AGENT_START',
+    type: 'UPDATE_AGENT_START',
   };
 };
 

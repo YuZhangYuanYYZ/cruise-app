@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import { sentPopupInfoAction } from '../../../../../store/actions/sentPopupInfoAction';
+import { getAgentId } from '../../../../../store/actions/getAgentIdAction';
 import { useDispatch } from 'react-redux';
 export function AgentResources({ agentId, status, resources }) {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ export function AgentResources({ agentId, status, resources }) {
       <div className="resourceItems">
         <span
           onClick={() => {
-            dispatch(sentPopupInfoAction({ agentId }));
+            dispatch(getAgentId({ agentId }));
           }}
           className="icon-plus"
         ></span>
