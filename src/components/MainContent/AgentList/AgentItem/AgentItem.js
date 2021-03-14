@@ -11,6 +11,7 @@ export function AgentItem({
   location,
   resources,
   setIsComponentVisible,
+  agentIndex,
 }) {
   const colorName = status === 'idle' ? 'yellow' : 'green';
   return (
@@ -36,6 +37,7 @@ export function AgentItem({
         </div>
         <AgentResources
           agentId={agentId}
+          agentIndex={agentIndex}
           resources={resources}
           status={status}
           setIsComponentVisible={setIsComponentVisible}

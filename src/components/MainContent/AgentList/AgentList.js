@@ -25,16 +25,16 @@ export function AgentList() {
 
   return (
     <>
-      {isComponentVisible && (
-        <AddResourcePopup
-          agents={agents}
-          setIsComponentVisible={setIsComponentVisible}
-          ref={ref}
-        />
-      )}
       <ul>
+        {isComponentVisible && (
+          <AddResourcePopup
+            agents={agents}
+            setIsComponentVisible={setIsComponentVisible}
+            ref={ref}
+          />
+        )}
         {agents.length > 0 &&
-          agents.map((agent) => {
+          agents.map((agent, index) => {
             return (
               <li key={agent.id}>
                 <AgentItem
@@ -46,6 +46,7 @@ export function AgentList() {
                   location={agent.location}
                   resources={agent.resources}
                   setIsComponentVisible={setIsComponentVisible}
+                  agentIndex={index}
                 ></AgentItem>
               </li>
             );
