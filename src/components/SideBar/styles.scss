@@ -3,16 +3,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: calc(100vh - 68px);
   width: 268px;
   color: #fff;
   background-color: #2d4054;
   .item {
     margin-top: 8px;
   }
-  .item:hover {
-    padding: 13px 0;
-    color: #00b4cf;
-  }
+
   .sideBarItem {
     padding-left: 30px;
     padding-top: 30px;
@@ -24,9 +22,22 @@
   }
   .sideBarItem li {
     padding: 4px 0;
+    a {
+      text-decoration: none;
+      &:hover {
+        color: #00b4cf;
+      }
+
+      &:visited {
+        color: #fff;
+      }
+    }
+    .router-link-active {
+      text-decoration: none;
+    }
   }
   .historyInfo {
-    padding: 0 0 15px 22px;
+    padding: 0 0 40px 22px;
     .testHistory li {
       list-style: initial;
       padding-top: 5px;

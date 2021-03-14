@@ -1,29 +1,33 @@
-import React, { useEffect } from 'react';
-import { StatusCard } from './StatusCard';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { AgentCount } from './AgentCount';
-import { requestAgents } from '../../../store/actions/agentAction';
+import { StatusCard } from './StatusCard';
 import './styles.scss';
-import { useSelector, useDispatch } from 'react-redux';
 
 export function AgentStatus() {
-  const dispatch = useDispatch();
   let agents = useSelector((state) => {
     return state.agents.items;
   });
-  const allAgentsNumber = agents.length;
-  const physicalAgentsNumber = agents.filter((item) => item.type === 'physical')
-    .length;
-  const virtualAgentsNumber = agents.filter((item) => item.type === 'virtual')
-    .length;
+  const allAgentsNumber = agents.length > 0 ? agents.length : 0;
+  const physicalAgentsNumber =
+    agents.length > 0
+      ? agents.filter((item) => item.type === 'physical').length
+      : 0;
+  const virtualAgentsNumber =
+    agents.length > 0
+      ? agents.filter((item) => item.type === 'virtual').length
+      : 0;
 
-  const buildingAgents = agents.filter((item) => item.status === 'building')
-    .length;
+  const buildingAgents =
+    agents.length > 0
+      ? agents.filter((item) => item.status === 'building').length
+      : 0;
 
-  const idleAgents = agents.filter((item) => item.status === 'idle').length;
+  const idleAgents =
+    agents.length > 0
+      ? agents.filter((item) => item.status === 'idle').length
+      : 0;
 
-  useEffect(() => {
-    dispatch(requestAgents());
-  }, [dispatch]);
   return (
     <div className="agentStatus">
       <StatusCard

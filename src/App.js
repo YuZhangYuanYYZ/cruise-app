@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { MainContent } from './components/MainContent';
-import { SideBar } from './components/SideBar';
+
 import { TopHeader } from './components/TopHeader';
 import { Footer } from './components/Footer';
+import { SideBar } from './components/SideBar';
 import { Provider } from 'react-redux';
 import store from './store';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+import { Router } from './Router';
+export function App() {
   const [sideBarVisibility, setsideBarVisibility] = useState(false);
   return (
     <Provider store={store}>
+      <TopHeader
+        setsideBarVisibility={setsideBarVisibility}
+        sideBarVisibility={sideBarVisibility}
+      ></TopHeader>
       <div className="App">
-        <TopHeader
-          setsideBarVisibility={setsideBarVisibility}
-          sideBarVisibility={sideBarVisibility}
-        ></TopHeader>
-        <div className="content">
-          <SideBar sideBarVisibility={sideBarVisibility}></SideBar>
-          <MainContent></MainContent>
-        </div>
-        <Footer></Footer>
+        <BrowserRouter>
+          <div className="content">
+            <SideBar sideBarVisibility={sideBarVisibility}></SideBar>
+            {store ? <Router></Router> : null}
+          </div>
+        </BrowserRouter>
       </div>
+      <Footer></Footer>
     </Provider>
   );
 }
-
-export default App;
