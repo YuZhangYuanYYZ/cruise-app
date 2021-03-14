@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 export function SideBar(props) {
@@ -8,20 +9,30 @@ export function SideBar(props) {
         props.sideBarVisibility ? 'showSideBar' : 'hideSideBar'
       }`}
     >
-      <ul className="sideBarItem">
-        <li className="item">
-          <span className="icon-dashboard"> </span> DASHBOARD
-        </li>
-        <li className="item">
-          <span className="icon-info"> </span> AGENT
-        </li>
-        <li className="item">
-          <span className="icon-cog"> </span> MYCRUISE
-        </li>
-        <li className="item">
-          <span className="icon-navicon"> </span> HELP
-        </li>
-      </ul>
+      <nav>
+        <ul className="sideBarItem">
+          <li className="item">
+            <Link to="/dashboard" className="icon-dashboard">
+              DASHBOARD
+            </Link>
+          </li>
+          <li className="item">
+            <Link to="/agent" className="icon-info">
+              AGENT
+            </Link>
+          </li>
+          <li className="item">
+            <Link to="/mycruise" className="icon-cog">
+              MYCRUISE
+            </Link>
+          </li>
+          <li className="item">
+            <Link to="/help" className="icon-navicon">
+              HELP
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <div className="historyInfo">
         <span>History</span>
         <ul className="testHistory">

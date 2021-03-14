@@ -6,7 +6,6 @@ export function NaveSearch() {
       <div className="searchContainer">
         <input className="searchInput"></input>
         <span className="icon-search"></span>
-        {/* <input className="tab-box-input" type="text" /> */}
       </div>
       <div className="displyStyles">
         <span className="icon-th-card "></span>

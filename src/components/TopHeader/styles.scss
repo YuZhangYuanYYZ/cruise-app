@@ -12,18 +12,58 @@
   .icon-navicon {
     display: none;
   }
+
+  .headerTitle:after,
+  .headerTitle:before {
+    content: ' ';
+    display: table;
+  }
+  .headerTitle:after {
+    clear: both;
+  }
+
   .headerTitle {
-    display: inline-block;
     .headerTitleLogo {
       width: 100px;
       height: 40px;
     }
   }
-  .avtarImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 25px;
+  .userInformation {
+    position: relative;
     float: right;
+    .avtarImg {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .showUserDetail {
+      position: absolute;
+      right: -32px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      top: 56px;
+      width: 120px;
+      height: 80px;
+      background-color: white;
+      span {
+        display: inline-block;
+        align-self: flex-start;
+        height: 26px;
+        width: 100%;
+        line-height: 26px;
+        margin: 6px 0;
+        padding: 0 6px;
+      }
+      span:hover {
+        background-color: #efefef;
+      }
+    }
+    .hideUserDetail {
+      display: none;
+    }
   }
 }
 
