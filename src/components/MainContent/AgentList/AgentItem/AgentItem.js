@@ -10,6 +10,7 @@ export function AgentItem({
   ip,
   location,
   resources,
+  setIsComponentVisible,
 }) {
   const colorName = status === 'idle' ? 'yellow' : 'green';
   return (
@@ -37,6 +38,7 @@ export function AgentItem({
           agentId={agentId}
           resources={resources}
           status={status}
+          setIsComponentVisible={setIsComponentVisible}
         />
       </div>
     </div>

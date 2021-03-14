@@ -2,13 +2,19 @@ import React from 'react';
 import './styles.scss';
 import { getAgentId } from '../../../../../store/actions/getAgentIdAction';
 import { useDispatch } from 'react-redux';
-export function AgentResources({ agentId, status, resources }) {
+export function AgentResources({
+  agentId,
+  status,
+  resources,
+  setIsComponentVisible,
+}) {
   const dispatch = useDispatch();
   return (
     <div className="resources">
       <div className="resourceItems">
         <span
           onClick={() => {
+            setIsComponentVisible(true);
             dispatch(getAgentId({ agentId }));
           }}
           className="icon-plus"

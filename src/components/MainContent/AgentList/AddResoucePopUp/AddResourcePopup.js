@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import { updateAgent } from '../../../../store/actions/updateResourceAction';
-import './styles.scss';
-import { Button } from '../../../common/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import { updateAgent } from '../../../../store/actions/updateResourceAction';
+import { Button } from '../../../common/Button/Button';
+import './styles.scss';
 import { convertNewResource } from './util';
-import { useComponentVisible } from '../AgentItem/AgentResources/hooks/useComponentVisible';
-export function AddResourcePopup(props) {
-  const dispatch = useDispatch();
-  const [resourceNames, setResourceNames] = useState('');
-  const { agentId } = useSelector((state) => state.agentId);
-  const {
-    ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(false, 'icon-plus');
-  return (
-    <div className="popupContainer" ref={ref}>
-      {isComponentVisible && (
+
+export const AddResourcePopup = React.forwardRef(
+  ({ setIsComponentVisible, agents }, ref) => {
+    const dispatch = useDispatch();
+    const [resourceNames, setResourceNames] = useState('');
+    const { agentId } = useSelector((state) => state.agentId);
+
+    return (
+      <div ref={ref} className="popupContainer">
         <div className="resourcePopup">
           <div>Separate Multiple resources by comma</div>
           <span
@@ -39,7 +35,7 @@ export function AddResourcePopup(props) {
                 const newAgent = convertNewResource(
                   agentId,
                   resourceNames,
-                  props.agents
+                  agents
                 );
                 dispatch(updateAgent(newAgent, agentId));
                 setResourceNames('');
@@ -55,7 +51,9 @@ export function AddResourcePopup(props) {
             </Button>
           </div>
         </div>
-      )}
-    </div>
-  );
-}
+      </div>
+    );
+  }
+);
+
+AddResourcePopup.displayName = 'AddResourcePopup';
