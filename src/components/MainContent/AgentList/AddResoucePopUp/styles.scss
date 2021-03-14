@@ -3,14 +3,13 @@
 .resourcePopup {
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 574px;
   border: 1px solid $lightskyBlue;
   box-shadow: 0 3 5px (#000 30%);
   padding: 20px;
   position: absolute;
-  top: 420px;
-  left: 506px;
+  top: 100px;
+  left: 96px;
   z-index: 100;
   background-color: #fff;
   input {

@@ -9,9 +9,12 @@ export const AddResourcePopup = React.forwardRef(
   ({ setIsComponentVisible, agents }, ref) => {
     const dispatch = useDispatch();
     const [resourceNames, setResourceNames] = useState('');
-    const { agentId } = useSelector((state) => state.agentId);
+    const { agentId, agentIndex } = useSelector((state) => state.resourceProps);
+    const popUpPositionStyle = {
+      top: agentIndex ? 122 * agentIndex + 100 + 'px' : '100px',
+    };
     return (
-      <div ref={ref} className="resourcePopup">
+      <div ref={ref} className="resourcePopup" style={popUpPositionStyle}>
         <div>Separate Multiple resources by comma</div>
         <span
           className="icon-close closeButton close"

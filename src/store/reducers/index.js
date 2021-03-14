@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { agentsReducer } from './agentsReducer';
-import { getAgentIdReducer } from './getAgentIdReducer';
+import { setResourcePopupPropsReducer } from './setResourcePopupPropsReducer';
 
 export default combineReducers({
   agents: agentsReducer,
-  agentId: getAgentIdReducer,
+  resourceProps: setResourcePopupPropsReducer,
 });
