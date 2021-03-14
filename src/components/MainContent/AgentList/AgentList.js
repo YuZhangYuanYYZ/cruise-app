@@ -6,7 +6,7 @@ import './styles.scss';
 import { filterAgents } from './utils/filterAgents';
 import { getLogo } from './utils/getLogo';
 import { AddResourcePopup } from './AddResoucePopUp';
-
+import { useComponentVisible } from './AgentItem/AgentResources/hooks/useComponentVisible';
 export function AgentList() {
   const dispatch = useDispatch();
   let agents = useSelector((state) => {
@@ -17,9 +17,21 @@ export function AgentList() {
     dispatch(requestAgents());
   }, [dispatch]);
 
+  const {
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+  } = useComponentVisible(false);
+
   return (
     <>
-      <AddResourcePopup agents={agents} />
+      {isComponentVisible && (
+        <AddResourcePopup
+          agents={agents}
+          setIsComponentVisible={setIsComponentVisible}
+          ref={ref}
+        />
+      )}
       <ul>
         {agents.length > 0 &&
           agents.map((agent) => {
@@ -33,6 +45,7 @@ export function AgentList() {
                   ip={agent.ip}
                   location={agent.location}
                   resources={agent.resources}
+                  setIsComponentVisible={setIsComponentVisible}
                 ></AgentItem>
               </li>
             );
