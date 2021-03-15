@@ -35,7 +35,13 @@ export function AgentResources({
       </div>
       {status === 'building' && (
         <>
-          <Button>Delete Agent</Button>
+          <Button
+            onClick={() => {
+              dispatch(deleteAgent(agentId));
+            }}
+          >
+            Delete Agent
+          </Button>
           <button className="denyButton">
             <span className="icon-deny"></span>Deny
           </button>
