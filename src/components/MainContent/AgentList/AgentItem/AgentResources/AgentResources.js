@@ -1,9 +1,10 @@
 import React from 'react';
 import './styles.scss';
-import { getAgentId } from '../../../../../store/actions/getAgentIdAction';
+import { setResourcePopupProps } from '../../../../../store/actions/setResourcePopupPropsAction';
 import { useDispatch } from 'react-redux';
 export function AgentResources({
   agentId,
+  agentIndex,
   status,
   resources,
   setIsComponentVisible,
@@ -15,7 +16,7 @@ export function AgentResources({
         <span
           onClick={() => {
             setIsComponentVisible(true);
-            dispatch(getAgentId({ agentId }));
+            dispatch(setResourcePopupProps({ agentId, agentIndex }));
           }}
           className="icon-plus"
         ></span>
