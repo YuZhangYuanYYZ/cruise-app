@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addAgentInfo } from '../../../../store/actions/AddAgentInfoAction';
-
+import { Button } from '../../../common/Button/Button';
 export function AddAgentPopup() {
   const dispatch = useDispatch();
   const [agent, setAgent] = useState({});
@@ -77,7 +77,7 @@ export function AddAgentPopup() {
         ></input>
       </div>
 
-      <button
+      <Button
         onClick={(e) => {
           e.preventDefault();
           const newAgent = agent;
@@ -85,7 +85,7 @@ export function AddAgentPopup() {
         }}
       >
         提交
-      </button>
+      </Button>
     </form>
   );
 }
