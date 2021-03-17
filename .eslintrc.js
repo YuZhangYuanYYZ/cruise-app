@@ -9,11 +9,13 @@ module.exports = {
   extends: [
     'react-app',
     'react-app/jest',
+    'plugin:compat/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
+    'plugin:sonarjs/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {

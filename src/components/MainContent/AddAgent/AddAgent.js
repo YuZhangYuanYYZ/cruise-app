@@ -1,17 +1,33 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addAgentPopup } from '../../../store/actions/addAgentPopupAction';
 import { AddAgentPopup } from './AddAgentPopup';
+import { useComponentVisible } from '../AgentList/AgentItem/AgentResources/hooks/useComponentVisible';
 import './styles.scss';
 export function AddAgent() {
   const dispatch = useDispatch();
-  const { addAgentPopupVisibility } = useSelector((state) => state.agents);
+  const {
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+  } = useComponentVisible(false);
   return (
     <>
-      <span className="addAgent" onClick={() => dispatch(addAgentPopup())}>
+      <span
+        className="addAgent"
+        onClick={() => {
+          setIsComponentVisible(true);
+          dispatch(addAgentPopup());
+        }}
+      >
         Add Agent
       </span>
-      {addAgentPopupVisibility && <AddAgentPopup></AddAgentPopup>}
+      {isComponentVisible && (
+        <AddAgentPopup
+          setIsComponentVisible={setIsComponentVisible}
+          ref={ref}
+        ></AddAgentPopup>
+      )}
     </>
   );
 }
