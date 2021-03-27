@@ -16,7 +16,6 @@ const requestAgentsSuccess = (payload) => {
     payload,
   };
 };
-
 const requestAgentsFail = (payload) => {
   return {
     type: 'REQUEST_AGENTS_FAIL',
