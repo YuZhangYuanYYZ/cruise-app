@@ -49,14 +49,14 @@ export function postAgentToAPI(newAgent) {
 
 export function deleteAgentApi(agentId) {
   const options = {
-    method: 'Put',
+    method: 'DELETE',
     headers: { 'content-type': DATA_FORMATE },
     // data: JSON.stringify(agentId),
     url: `${API_BASE}/agents/${agentId}`,
   };
   return axios(options).then(
     (response) => {
-      return response.data;
+      return response.status;
     },
     (err) => {
       return err;
