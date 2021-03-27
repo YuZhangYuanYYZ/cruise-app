@@ -1,12 +1,12 @@
 @import '../../../styles/shared.scss';
 .navTabs {
   .filter {
-    display: inline-block;
     padding: 15px 25px;
-    line-height: 1;
     border-right: 1px solid $lightGrey;
+    border-bottom: 2px solid transparent;
     font-size: $largeFont;
     background-color: #fff;
+    align-self: center;
     cursor: pointer;
     &.active {
       border-bottom: 2px solid $lightskyBlue;

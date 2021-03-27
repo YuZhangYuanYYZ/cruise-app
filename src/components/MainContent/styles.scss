@@ -4,7 +4,6 @@
   flex-direction: column;
   flex: 1 1 auto;
   padding: 20px 0 0 30px;
-
   @media (max-width: $desktop) {
     padding: 12px 1% 0;
   }
@@ -12,9 +11,5 @@
   .agentResourceContainer {
     min-height: calc(100vh - 60px);
     padding-top: 20px;
-  }
-
-  .navigationSearch {
-    display: flex;
   }
 }
