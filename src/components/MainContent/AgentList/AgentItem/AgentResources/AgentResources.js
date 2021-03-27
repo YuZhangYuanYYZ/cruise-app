@@ -3,6 +3,7 @@ import './styles.scss';
 import { setResourcePopupProps } from '../../../../../store/actions/setResourcePopupPropsAction';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../../common/Button/Button';
+import { deleteAgent } from '../../../../../store/actions/deleteAgentAction';
 export function AgentResources({
   agentId,
   agentIndex,

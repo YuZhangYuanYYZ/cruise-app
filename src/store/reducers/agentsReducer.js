@@ -16,6 +16,11 @@ import {
 } from '../actions/AddAgentInfoAction';
 import { SELECT_AGENT } from '../actions/selectAgentTypeAction';
 
+import {
+  DELETE_AGENT_START,
+  DELETE_AGENT_SUCCESS,
+  DELETE_AGENT_FAIL,
+} from '../actions/deleteAgentAction';
 import { ADD_AGENT_POPUP } from '../actions/addAgentPopupAction';
 
 const initialState = {
@@ -63,6 +68,17 @@ export function agentsReducer(state = initialState, action) {
       return { ...state, status: 'fail', error: action.payload.error };
     case SELECT_AGENT:
       return { ...state, renderSelect: action.payload };
+    case DELETE_AGENT_START:
+      return { ...state, status: 'loading' };
+    case DELETE_AGENT_SUCCESS:
+      return {
+        ...state,
+        items: state.items.filter((item) => {
+          return item.id !== action.payload;
+        }),
+      };
+    case DELETE_AGENT_FAIL:
+      return { ...state, status: 'fail', error: action.payload.error };
     default:
       return state;
   }
