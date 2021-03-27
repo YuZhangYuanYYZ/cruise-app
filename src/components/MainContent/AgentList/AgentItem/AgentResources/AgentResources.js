@@ -2,6 +2,8 @@ import React from 'react';
 import './styles.scss';
 import { setResourcePopupProps } from '../../../../../store/actions/setResourcePopupPropsAction';
 import { useDispatch } from 'react-redux';
+import { Button } from '../../../../common/Button/Button';
+import { deleteAgent } from '../../../../../store/actions/deleteAgentAction';
 export function AgentResources({
   agentId,
   agentIndex,
@@ -33,9 +35,18 @@ export function AgentResources({
         </ul>
       </div>
       {status === 'building' && (
-        <button className="denyButton">
-          <span className="icon-deny"></span>Deny
-        </button>
+        <>
+          <Button
+            onClick={() => {
+              dispatch(deleteAgent(agentId));
+            }}
+          >
+            Delete Agent
+          </Button>
+          <button className="denyButton">
+            <span className="icon-deny"></span>Deny
+          </button>
+        </>
       )}
     </div>
   );
