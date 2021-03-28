@@ -55,7 +55,9 @@ export function deleteAgentApi(agentId) {
   };
   return axios(options).then(
     (response) => {
-      return response.status;
+      if (response.status === 200) {
+        return response.status;
+      }
     },
     (err) => {
       return err;

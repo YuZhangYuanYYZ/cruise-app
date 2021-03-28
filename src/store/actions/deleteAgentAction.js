@@ -27,9 +27,7 @@ export function deleteAgent(agentId) {
     dispatch(deleteAgentStart);
     deleteAgentApi(agentId).then(
       (response) => {
-        if (response === 200) {
-          dispatch(deleteAgentSuccess(agentId));
-        }
+        dispatch(deleteAgentSuccess(agentId));
       },
       (err) => dispatch(deleteAgentFail(err))
     );
