@@ -57,6 +57,8 @@ export function deleteAgentApi(agentId) {
     (response) => {
       if (response.status === 200) {
         return response.status;
+      } else {
+        throw new Error('delete not success');
       }
     },
     (err) => {

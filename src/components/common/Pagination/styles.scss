@@ -1,0 +1,9 @@
+@import '../../../styles/shared.scss';
+
+.paginations{
+  display: flex;
+  margin: 22px;
+  .selected{
+    background-color: lawngreen;
+  }
+}
