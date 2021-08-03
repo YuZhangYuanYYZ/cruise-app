@@ -11,7 +11,7 @@ export function MainContent() {
   let agentLists = useSelector((state) => {
     return state.agents.items;
   });
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   return (
     <div className="mainContent">
       <AgentStatus />
@@ -29,6 +29,13 @@ export function MainContent() {
           onPageChange={(page) => setCurrentPage(page)}
         ></Pagination>
       </div>
+      <Pagination
+        className="paginations"
+        currentPage={currentPage}
+        totalCount={agentLists.length}
+        pageSize={2}
+        onPageChange={(page) => setCurrentPage(page)}
+      ></Pagination>
     </div>
   );
 }
