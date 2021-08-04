@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { requestAgents } from '../../../store/actions/agentAction';
 import { AgentItem } from './AgentItem';
 import './styles.scss';
-import { filterAgents } from './utils/filterAgents';
+
 import { getLogo } from './utils/getLogo';
 import { AddResourcePopup } from './AddResoucePopUp';
 import { useComponentVisible } from './AgentItem/AgentResources/hooks/useComponentVisible';
-export function AgentList() {
+export function AgentList({ agents }) {
   const dispatch = useDispatch();
-  let agents = useSelector((state) => {
-    return filterAgents(state.agents);
-  });
-
   useEffect(() => {
     dispatch(requestAgents());
   }, [dispatch]);
@@ -22,7 +18,6 @@ export function AgentList() {
     isComponentVisible,
     setIsComponentVisible,
   } = useComponentVisible(false);
-
   return (
     <>
       <ul>
@@ -35,6 +30,10 @@ export function AgentList() {
         )}
         {agents.length > 0 &&
           agents.map((agent, index) => {
+            console.log(
+              '🚀 ~ file: AgentList.js ~ line 35 ~ agents.map ~ agent',
+              agent
+            );
             return (
               <li key={agent.id}>
                 <AgentItem

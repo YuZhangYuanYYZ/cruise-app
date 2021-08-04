@@ -39,12 +39,9 @@ export function Pagination(props) {
       className={classnames('pagination-container', { [className]: className })}
     >
       <li
-        className={classnames(
-          { paginationItem },
-          {
-            disabled: currentPage === 1,
-          }
-        )}
+        className={classnames(paginationItem, {
+          disabled: currentPage === 1,
+        })}
         onClick={onPrevious}
       >
         <div className="arrow left" />
@@ -56,12 +53,9 @@ export function Pagination(props) {
         return (
           <li
             key={pageNumber}
-            className={classnames(
-              { paginationItem },
-              {
-                selected: pageNumber === currentPage,
-              }
-            )}
+            className={classnames(paginationItem, {
+              selected: pageNumber === currentPage,
+            })}
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
@@ -69,12 +63,9 @@ export function Pagination(props) {
         );
       })}
       <li
-        className={classnames(
-          { paginationItem },
-          {
-            disabled: currentPage === lastPage,
-          }
-        )}
+        className={classnames(paginationItem, {
+          disabled: currentPage === lastPage,
+        })}
         onClick={onNext}
       >
         <div className="arrow right" />

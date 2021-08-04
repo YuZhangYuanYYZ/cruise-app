@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { AgentFilter } from './AgentFilter/AgentFilter';
 import { AgentList } from './AgentList';
@@ -6,12 +6,22 @@ import { AgentStatus } from './AgentStatus';
 import { NaveSearch } from './NaveSearch';
 import { AddAgent } from './AddAgent';
 import { Pagination } from '../common/Pagination/Pagination';
+import { filterAgents } from './AgentList/utils/filterAgents';
+
 import './styles.scss';
 export function MainContent() {
-  let agentLists = useSelector((state) => {
-    return state.agents.items;
-  });
   const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5;
+  let agents = useSelector((state) => {
+    return filterAgents(state.agents);
+  });
+  const currentAgentsData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return agents.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, agents, pageSize]);
+  console.log(agents, currentAgentsData, 'agents2222,currentAgentsData');
+
   return (
     <div className="mainContent">
       <AgentStatus />
@@ -21,19 +31,13 @@ export function MainContent() {
           <AddAgent></AddAgent>
           <NaveSearch></NaveSearch>
         </div>
-        <AgentList></AgentList>
-        <Pagination
-          pageSize={5}
-          totalItemsCount={agentLists.length}
-          currentPage={currentPage}
-          onPageChange={(page) => setCurrentPage(page)}
-        ></Pagination>
+        <AgentList agents={currentAgentsData}></AgentList>
       </div>
       <Pagination
-        className="paginations"
+        className="pagination-bar"
         currentPage={currentPage}
-        totalCount={agentLists.length}
-        pageSize={2}
+        totalCount={agents.length}
+        pageSize={pageSize}
         onPageChange={(page) => setCurrentPage(page)}
       ></Pagination>
     </div>
