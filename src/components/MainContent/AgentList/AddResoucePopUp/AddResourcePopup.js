@@ -13,6 +13,7 @@ export const AddResourcePopup = React.forwardRef(
     const popUpPositionStyle = {
       top: agentIndex ? 122 * agentIndex + 100 + 'px' : '100px',
     };
+    console.log(agents, 'popup55555555');
     return (
       <div ref={ref} className="resourcePopup" style={popUpPositionStyle}>
         <div>Separate Multiple resources by comma</div>

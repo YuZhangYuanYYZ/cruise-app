@@ -13,7 +13,9 @@ export function AgentItem({
   setIsComponentVisible,
   agentIndex,
 }) {
+  console.log('here111111111');
   const colorName = status === 'idle' ? 'yellow' : 'green';
+  console.log('agentId', 'agentId444');
   return (
     <div className="agentItem">
       <div className="itemlogo">
