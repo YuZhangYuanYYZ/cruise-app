@@ -30,10 +30,6 @@ export function AgentList({ agents }) {
         )}
         {agents.length > 0 &&
           agents.map((agent, index) => {
-            console.log(
-              '🚀 ~ file: AgentList.js ~ line 35 ~ agents.map ~ agent',
-              agent
-            );
             return (
               <li key={agent.id}>
                 <AgentItem
