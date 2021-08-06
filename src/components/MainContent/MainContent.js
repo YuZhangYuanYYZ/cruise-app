@@ -20,8 +20,6 @@ export function MainContent() {
     const lastPageIndex = firstPageIndex + pageSize;
     return agents.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, agents, pageSize]);
-  console.log(agents, currentAgentsData, 'agents2222,currentAgentsData');
-
   return (
     <div className="mainContent">
       <AgentStatus />
