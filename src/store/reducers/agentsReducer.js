@@ -23,6 +23,7 @@ import {
 } from '../actions/deleteAgentAction';
 import { ADD_AGENT_POPUP } from '../actions/addAgentPopupAction';
 
+// prop StateType
 const initialState = {
   status: 'idle',
   addAgentPopupVisibility: false,

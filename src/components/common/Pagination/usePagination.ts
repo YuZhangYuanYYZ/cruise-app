@@ -2,19 +2,25 @@
 import { useMemo } from 'react';
 
 export const DOTS = '...';
-
-const range = (start, end) => {
+// the sequences displayed,
+const range = (start: number, end: number): number[] => {
   let length = end - start + 1;
   // eslint-disable-next-line compat/compat
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
+type PaginationParameters = {
+  totalCount: number;
+  pageSize: number;
+  siblingCount: number;
+  currentPage: number;
+};
 export const usePagination = ({
   totalCount,
   pageSize,
   siblingCount = 1,
   currentPage,
-}) => {
+}: PaginationParameters): (string | number)[] => {
   return useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize);
 
@@ -47,14 +53,14 @@ export const usePagination = ({
     const lastPageIndex = totalPageCount;
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      let leftItemCount = 3 + 2 * siblingCount;
+      let leftItemCount = 1 + 2 * siblingCount;
       let leftRange = range(1, leftItemCount);
 
       return [...leftRange, DOTS, totalPageCount];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      let rightItemCount = 3 + 2 * siblingCount;
+      let rightItemCount = 1 + 2 * siblingCount;
       let rightRange = range(
         totalPageCount - rightItemCount + 1,
         totalPageCount
@@ -63,8 +69,9 @@ export const usePagination = ({
     }
 
     if (shouldShowLeftDots && shouldShowRightDots) {
-      let middleRange = range(leftSiblingIndex, rightSiblingIndex);
+      let middleRange = range(currentPage, currentPage);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
+    return [];
   }, [totalCount, pageSize, siblingCount, currentPage]);
 };

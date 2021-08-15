@@ -2,7 +2,18 @@ import React from 'react';
 import classnames from 'classnames';
 import { usePagination, DOTS } from './usePagination';
 import './pagination.scss';
-export function Pagination(props) {
+interface FunctionPageChange {
+  (a: number | string): number;
+}
+type PaginationParameters = {
+  onPageChange: FunctionPageChange;
+  totalCount: number;
+  siblingCount: number;
+  currentPage: number;
+  pageSize: number;
+  className: string;
+};
+export function Pagination(props: PaginationParameters) {
   const {
     onPageChange,
     totalCount,

@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Dispatch } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAgentTypeAction } from '../../../store/actions/selectAgentTypeAction';
 import './styles.scss';
@@ -23,7 +24,7 @@ const renderFilters = (dispatch, currentRenderSelect) => {
   });
 };
 
-export function AgentFilter(props) {
+export function AgentFilter() {
   const dispatch = useDispatch();
   let currentRenderSelect = useSelector((state) => {
     return state.agents.renderSelect;

@@ -11,7 +11,7 @@ import { filterAgents } from './AgentList/utils/filterAgents';
 import './styles.scss';
 export function MainContent() {
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 5;
+  const pageSize = 1;
   let agents = useSelector((state) => {
     return filterAgents(state.agents);
   });
