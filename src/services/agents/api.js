@@ -13,12 +13,12 @@ export function getAgentsList() {
   );
 }
 
-export function updateAgentInAPI(newAgent, itemId) {
+export function updateAgentInAPI(newAgent) {
   const options = {
     method: 'PUT',
     headers: { 'content-type': DATA_FORMATE },
     data: JSON.stringify(newAgent),
-    url: `${API_BASE}/agents/${itemId}`,
+    url: `${API_BASE}/agents/${newAgent.id}`,
   };
   return axios(options).then(
     (response) => {
@@ -56,23 +56,6 @@ export function deleteAgentApi(agentId) {
   return axios(options).then(
     (response) => {
       return response.status;
-    },
-    (err) => {
-      return err;
-    }
-  );
-}
-
-export function addOrCancelFavoriteToAPI(agentId) {
-  const options = {
-    method: 'PUT',
-    headers: { 'content-type': DATA_FORMATE },
-    data: JSON.stringify(agentId),
-    url: `${API_BASE}/agents/${agentId}`,
-  };
-  return axios(options).then(
-    (response) => {
-      return response.data;
     },
     (err) => {
       return err;

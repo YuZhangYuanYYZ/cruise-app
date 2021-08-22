@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import { setResourcePopupProps } from '../../../../../store/actions/setResourcePopupPropsAction';
-import { addOrCancleFavoriteAgent } from '../../../../../store/actions/AddOrCancelFavoriteAction';
+import { toggleFavoriteAgentStatus } from '../../../../../store/actions/toggleFavoriteAction';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../../common/Button/Button';
 import { deleteAgent } from '../../../../../store/actions/deleteAgentAction';
@@ -12,6 +12,7 @@ export function AgentResources({
   resources,
   setIsComponentVisible,
   isFavorite,
+  agent,
 }) {
   const dispatch = useDispatch();
   return (
@@ -52,7 +53,7 @@ export function AgentResources({
             className={`favorite 
             ${isFavorite ? 'favoriteSelected' : 'favoriteDeSelected'}`}
             onClick={() => {
-              dispatch(addOrCancleFavoriteAgent(agentId));
+              dispatch(toggleFavoriteAgentStatus(agent));
             }}
           >
             Favorite

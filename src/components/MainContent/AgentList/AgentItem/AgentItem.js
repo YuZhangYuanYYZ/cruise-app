@@ -13,6 +13,7 @@ export function AgentItem({
   setIsComponentVisible,
   agentIndex,
   isFavorite,
+  agent,
 }) {
   const colorName = status === 'idle' ? 'yellow' : 'green';
   return (
@@ -43,6 +44,7 @@ export function AgentItem({
           status={status}
           setIsComponentVisible={setIsComponentVisible}
           isFavorite={isFavorite}
+          agent={agent}
         />
       </div>
     </div>
