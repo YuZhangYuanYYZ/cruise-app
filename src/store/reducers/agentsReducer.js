@@ -8,7 +8,11 @@ import {
   UPDATE_AGENT_SUCCESS,
   UPDATE_AGENT_FAIL,
 } from '../actions/updateResourceAction';
-
+import {
+  ADDORCANCEL_FAVORITE_START,
+  ADDORCANCEL_FAVORITE_SUCCESS,
+  ADDORCANCEL_FAVORITE_FAIL,
+} from '../actions/AddOrCancelFavoriteAction';
 import {
   CREATE_AGENT_START,
   CREATE_AGENT_SUCCESS,
@@ -27,6 +31,7 @@ import { ADD_AGENT_POPUP } from '../actions/addAgentPopupAction';
 const initialState = {
   status: 'idle',
   addAgentPopupVisibility: false,
+  addOrCancelFavoriteAgentInprogress: false,
   items: [],
   renderSelect: 'all',
 };
@@ -80,6 +85,27 @@ export function agentsReducer(state = initialState, action) {
       };
     case DELETE_AGENT_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };
+    case ADDORCANCEL_FAVORITE_START:
+      return {
+        ...state,
+        addAgentPopupVisibility: true,
+      };
+    case ADDORCANCEL_FAVORITE_SUCCESS:
+      return {
+        ...state,
+        addOrCancelFavoriteAgentInprogress: false,
+        items: state.items.map((item) => {
+          if (item.id !== action.payload.agentId) {
+            item.isFavorite = !item.isFavorite;
+          }
+          return item;
+        }),
+      };
+    case ADDORCANCEL_FAVORITE_FAIL:
+      return {
+        ...state,
+        addOrCancelFavoriteAgentInprogress: false,
+      };
     default:
       return state;
   }

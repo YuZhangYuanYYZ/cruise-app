@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-type resultType = { ref; isComponentVisible; setIsComponentVisible };
-export function useComponentVisible(initialIsVisible: boolean) {
+// type resultType = { ref; isComponentVisible; setIsComponentVisible };
+export function useComponentVisible(initialIsVisible) {
   const [isComponentVisible, setIsComponentVisible] = useState(
     initialIsVisible
   );

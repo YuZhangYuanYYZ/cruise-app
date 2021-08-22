@@ -62,3 +62,20 @@ export function deleteAgentApi(agentId) {
     }
   );
 }
+
+export function addOrCancelFavoriteToAPI(agentId) {
+  const options = {
+    method: 'PUT',
+    headers: { 'content-type': DATA_FORMATE },
+    data: JSON.stringify(agentId),
+    url: `${API_BASE}/agents/${agentId}`,
+  };
+  return axios(options).then(
+    (response) => {
+      return response.data;
+    },
+    (err) => {
+      return err;
+    }
+  );
+}
