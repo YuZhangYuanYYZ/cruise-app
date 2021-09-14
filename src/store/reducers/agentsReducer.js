@@ -88,7 +88,7 @@ export function agentsReducer(state = initialState, action) {
     case TOGGLE_FAVORITE_START:
       return {
         ...state,
-        addAgentPopupVisibility: true,
+        toggleFavoriteAgentInprogress: true,
       };
     case TOGGLE_FAVORITE_SUCCESS:
       return {

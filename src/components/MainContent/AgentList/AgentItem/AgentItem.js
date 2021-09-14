@@ -14,9 +14,6 @@ export function AgentItem({
   agentIndex,
   agent,
 }) {
-  const toggleFavoriteAgentInprogress = useSelector((state) => {
-    return state.agents.toggleFavoriteAgentInprogress;
-  });
   const colorName = status === 'idle' ? 'yellow' : 'green';
   return (
     <div className="agentItem">
@@ -45,7 +42,7 @@ export function AgentItem({
           resources={resources}
           status={status}
           setIsComponentVisible={setIsComponentVisible}
-          isFavorite={toggleFavoriteAgentInprogress}
+          isFavorite={agent.isFavorite}
           agent={agent}
         />
       </div>
