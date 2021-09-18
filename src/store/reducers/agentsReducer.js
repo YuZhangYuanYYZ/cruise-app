@@ -95,8 +95,8 @@ export function agentsReducer(state = initialState, action) {
         ...state,
         toggleFavoriteAgentInprogress: false,
         items: state.items.map((item) => {
-          if (item.id !== action.payload.agentId) {
-            item.isFavorite = !item.isFavorite;
+          if (item.id === action.payload.agentId) {
+            return action.payload;
           }
           return item;
         }),
