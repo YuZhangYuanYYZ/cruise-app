@@ -5,15 +5,20 @@ type Props = {
   onClick: MouseEventHandler;
   iconName: string;
   children: React.ReactChildren;
+  className: string;
 };
 export function Button(props: Props) {
-  const { iconName, children, onClick, ...rest } = props;
+  const { iconName, children, onClick, className, ...rest } = props;
   const renderIcon = (iconName: string) => {
     return <span className={`icon ${iconName}`}></span>;
   };
 
   return (
-    <button className="customButton primary" onClick={onClick} {...rest}>
+    <button
+      className={`customButton primary ${className}`}
+      onClick={onClick}
+      {...rest}
+    >
       {iconName && renderIcon(iconName)}
       {children}
     </button>

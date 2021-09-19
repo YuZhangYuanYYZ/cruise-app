@@ -56,7 +56,7 @@ export function AgentResources({
           <Button
             className={`favorite 
             ${agent.isFavorite ? 'favoriteSelected' : 'favoriteDeSelected'}
-            ${toggleFavoriteAgentInprogress ? 'favoriteHide' : null}`}
+            ${toggleFavoriteAgentInprogress ? 'favoriteHide' : ''}`}
             onClick={() => {
               dispatch(toggleFavoriteAgentStatus(agent));
             }}

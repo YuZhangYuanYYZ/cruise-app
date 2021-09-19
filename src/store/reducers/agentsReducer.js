@@ -98,7 +98,6 @@ export function agentsReducer(state = initialState, action) {
           if (item.id === action.payload.id) {
             return {
               ...action.payload,
-              isFavorite: !item.isFavorite,
             };
           }
           return item;
