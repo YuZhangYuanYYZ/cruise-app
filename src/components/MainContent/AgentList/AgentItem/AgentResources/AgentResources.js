@@ -16,9 +16,17 @@ export function AgentResources({
   agent,
 }) {
   const dispatch = useDispatch();
-  let toggleFavoriteAgentInprogress = useSelector((state) => {
-    return state.agents.toggleFavoriteAgentInprogress;
+  let agentsFavoriteState = useSelector((state) => {
+    return state.agents.favoriteState;
   });
+  let currentAgentFavoriteStatus = agentsFavoriteState.find((item) => {
+    return item.agentId === agent.id;
+  });
+  const currentAgentFavoriteAgentInprogress = Boolean(
+    currentAgentFavoriteStatus &&
+      currentAgentFavoriteStatus.toggleFavoriteAgentInprogress
+  );
+
   return (
     <div className="resources">
       <div className="resourceItems">
@@ -56,7 +64,7 @@ export function AgentResources({
           <Button
             className={`favorite 
             ${agent.isFavorite ? 'favoriteSelected' : 'favoriteDeSelected'}
-            ${toggleFavoriteAgentInprogress ? 'favoriteHide' : ''}`}
+            ${currentAgentFavoriteAgentInprogress ? 'favoriteHide' : ''}`}
             onClick={() => {
               dispatch(toggleFavoriteAgentStatus(agent));
             }}
@@ -66,7 +74,7 @@ export function AgentResources({
           <PushSpinner
             size={20}
             color="#686769"
-            loading={toggleFavoriteAgentInprogress}
+            loading={currentAgentFavoriteAgentInprogress}
           />
         </>
       )}
