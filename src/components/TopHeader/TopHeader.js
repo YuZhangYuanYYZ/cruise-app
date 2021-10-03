@@ -3,7 +3,7 @@ import avartaImg from './assets/avatar.jpg';
 import './styles.scss';
 import titleLogo from './assets/logo/logo.svg';
 import { useTranslation } from 'react-i18next';
-
+import { Button } from '../common/Button/Button.tsx';
 export function TopHeader(props) {
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
@@ -40,10 +40,10 @@ export function TopHeader(props) {
             <span className="icon-sign-in"> {t('Sign Out')}</span>
           </div>
         </div>
-      </div>
-      <div className="langauageChange">
-        <button onClick={() => changeLanguage('cn')}>cn</button>
-        <button onClick={() => changeLanguage('en')}>en</button>
+        <div className="langauageChange">
+          <Button onClick={() => changeLanguage('cn')}>cn</Button>
+          <Button onClick={() => changeLanguage('en')}>en</Button>
+        </div>
       </div>
     </div>
   );
