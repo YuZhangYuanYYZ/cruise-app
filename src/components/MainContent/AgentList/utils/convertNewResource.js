@@ -9,6 +9,5 @@ export function convertNewResource(itemId, resourceIndex, agents) {
       return agent;
     }
   });
-  const newAgent = newAgents.filter((agent) => agent.id === itemId)[0];
-  return newAgent;
+  return newAgents.filter((agent) => agent.id === itemId)[0];
 }

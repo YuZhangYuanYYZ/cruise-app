@@ -8,7 +8,11 @@ import {
   UPDATE_AGENT_SUCCESS,
   UPDATE_AGENT_FAIL,
 } from '../actions/updateResourceAction';
-
+import {
+  TOGGLE_FAVORITE_START,
+  TOGGLE_FAVORITE_SUCCESS,
+  TOGGLE_FAVORITE_FAIL,
+} from '../actions/toggleFavoriteAction';
 import {
   CREATE_AGENT_START,
   CREATE_AGENT_SUCCESS,
@@ -27,6 +31,7 @@ import { ADD_AGENT_POPUP } from '../actions/addAgentPopupAction';
 const initialState = {
   status: 'idle',
   addAgentPopupVisibility: false,
+  favoriteState: [],
   items: [],
   renderSelect: 'all',
 };
@@ -37,6 +42,28 @@ function convertNewAgents(items, newAgent) {
   });
 }
 
+function convertAgentFavoriteState(state, agentId, favoriteAgentInprogress) {
+  const agentInState = state.favoriteState.find(
+    (item) => item.agentId === agentId
+  );
+  if (agentInState) {
+    return state.favoriteState.map((item) => {
+      if (item.agentId === agentId) {
+        return {
+          agentId,
+          toggleFavoriteAgentInprogress: favoriteAgentInprogress,
+        };
+      } else {
+        return item;
+      }
+    });
+  } else {
+    return [
+      ...state.favoriteState,
+      { agentId, toggleFavoriteAgentInprogress: favoriteAgentInprogress },
+    ];
+  }
+}
 export function agentsReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_AGENT_POPUP:
@@ -80,6 +107,37 @@ export function agentsReducer(state = initialState, action) {
       };
     case DELETE_AGENT_FAIL:
       return { ...state, status: 'fail', error: action.payload.error };
+    case TOGGLE_FAVORITE_START:
+      return {
+        ...state,
+        favoriteState: convertAgentFavoriteState(state, action.payload, true),
+      };
+    case TOGGLE_FAVORITE_SUCCESS:
+      return {
+        ...state,
+        favoriteState: convertAgentFavoriteState(
+          state,
+          action.payload.id,
+          false
+        ),
+        items: state.items.map((item) => {
+          if (item.id === action.payload.id) {
+            return {
+              ...action.payload,
+            };
+          }
+          return item;
+        }),
+      };
+    case TOGGLE_FAVORITE_FAIL:
+      return {
+        ...state,
+        favoriteState: convertAgentFavoriteState(
+          state,
+          action.payload.id,
+          false
+        ),
+      };
     default:
       return state;
   }

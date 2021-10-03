@@ -27,10 +27,10 @@ export const updateAgentFail = (error) => {
   };
 };
 
-export function updateAgent(newAgent, itemId) {
+export function updateAgent(newAgent) {
   return function (dispatch) {
     dispatch(updateAgentStart());
-    updateAgentInAPI(newAgent, itemId).then(
+    updateAgentInAPI(newAgent, newAgent.id).then(
       (agentData) => {
         dispatch(updateAgentSuccess(agentData));
         return agentData;

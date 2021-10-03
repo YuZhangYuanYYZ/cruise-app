@@ -42,6 +42,8 @@ export function AgentList({ agents }) {
                   resources={agent.resources}
                   setIsComponentVisible={setIsComponentVisible}
                   agentIndex={index}
+                  isFavorite={agent.isFavorite}
+                  agent={agent}
                 ></AgentItem>
               </li>
             );

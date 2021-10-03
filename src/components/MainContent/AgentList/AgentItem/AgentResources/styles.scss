@@ -36,4 +36,10 @@
     color: #fff;
     border: 0;
   }
+  .favoriteSelected {
+    background-color: $darkskyBlue;
+  }
+  .favoriteHide {
+    visibility: hidden;
+  }
 }
