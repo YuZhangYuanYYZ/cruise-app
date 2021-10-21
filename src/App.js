@@ -7,7 +7,6 @@ import { SideBar } from './components/SideBar';
 import { Provider } from 'react-redux';
 import store from './store';
 import { BrowserRouter } from 'react-router-dom';
-
 import { Router } from './Router';
 export function App() {
   const [sideBarVisibility, setsideBarVisibility] = useState(false);

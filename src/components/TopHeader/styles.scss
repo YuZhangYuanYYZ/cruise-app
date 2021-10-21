@@ -65,6 +65,14 @@
       display: none;
     }
   }
+  .langauageChange {
+    position: absolute;
+    right: 56px;
+    top: 24px;
+    display: flex;
+    width: 50px;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: $tablet) {
