@@ -1,39 +1,75 @@
 import React from 'react';
-import './styles.scss';
-import { Button } from '../Button';
-
+import classnames from 'classnames';
+import { usePagination, DOTS } from './usePagination';
+import './pagination.scss';
 export function Pagination(props) {
-  const { totalItemsCount, pageSize, currentPage, onPageChange } = props;
-  const pagesCount = Math.ceil(totalItemsCount / pageSize);
-  const onNextButtonClick = (currentPage) => onPageChange(currentPage + 1);
-  const onPreviousButtonClick = (currentPage) => onPageChange(currentPage - 1);
-  if (pagesCount === 1) {
-    return (
-      <div className="paginations">
-        <Button>1</Button>
-      </div>
-    );
-  } else {
-    return (
-      <div className="paginations">
-        <Button onClick={(e) => onPreviousButtonClick(currentPage)}>
-          {'<'}
-        </Button>
-        {generateNumsByLength(pagesCount).map((page) => (
-          <Button key={page} className={page === currentPage ? 'selected' : ''}>
-            {page}
-          </Button>
-        ))}
-        <Button onClick={(e) => onNextButtonClick(currentPage)}>{'>'}</Button>
-      </div>
-    );
-  }
-}
+  const {
+    onPageChange,
+    totalCount,
+    siblingCount = 1,
+    currentPage,
+    pageSize,
+    className,
+  } = props;
 
-function generateNumsByLength(num) {
-  let numArray = [];
-  for (let i = 1; i <= num; i++) {
-    numArray.push(i);
+  const paginationRange = usePagination({
+    currentPage,
+    totalCount,
+    siblingCount,
+    pageSize,
+  });
+
+  if (currentPage === 0 || paginationRange.length < 2) {
+    return null;
   }
-  return numArray;
+
+  const onNext = () => {
+    onPageChange(currentPage + 1);
+  };
+
+  const onPrevious = () => {
+    onPageChange(currentPage - 1);
+  };
+
+  let lastPage = paginationRange[paginationRange.length - 1];
+  const paginationItem = 'pagination-item';
+
+  return (
+    <ul
+      className={classnames('pagination-container', { [className]: className })}
+    >
+      <li
+        className={classnames(paginationItem, {
+          disabled: currentPage === 1,
+        })}
+        onClick={onPrevious}
+      >
+        <div className="arrow left" />
+      </li>
+      {paginationRange.map((pageNumber) => {
+        if (pageNumber === DOTS) {
+          return <li className="pagination-item dots">&#8230;</li>;
+        }
+        return (
+          <li
+            key={pageNumber}
+            className={classnames(paginationItem, {
+              selected: pageNumber === currentPage,
+            })}
+            onClick={() => onPageChange(pageNumber)}
+          >
+            {pageNumber}
+          </li>
+        );
+      })}
+      <li
+        className={classnames(paginationItem, {
+          disabled: currentPage === lastPage,
+        })}
+        onClick={onNext}
+      >
+        <div className="arrow right" />
+      </li>
+    </ul>
+  );
 }
