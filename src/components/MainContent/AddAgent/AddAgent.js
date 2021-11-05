@@ -6,11 +6,8 @@ import { useComponentVisible } from '../AgentList/AgentItem/AgentResources/hooks
 import './styles.scss';
 export function AddAgent() {
   const dispatch = useDispatch();
-  const {
-    ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(false);
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useComponentVisible(false);
   return (
     <>
       <span

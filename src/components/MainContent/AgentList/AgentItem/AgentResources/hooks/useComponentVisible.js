@@ -8,8 +8,7 @@ type resultType = {
 export function useComponentVisible(initialIsVisible: boolean) {
   const [isComponentVisible, setIsComponentVisible] =
     useState(initialIsVisible);
-  const ref: React.RefObject<HTMLFormElement | null> =
-    useRef<HTMLFormElement>(null);
+  const ref: React.RefObject<HTMLFormElement> = useRef<HTMLFormElement>(null);
 
   const handleClickOutside = (event: Event) => {
     const currentRef = ref.current;
