@@ -1,13 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
+type resultType = {
+  ref: React.RefObject<HTMLFormElement>;
+  isComponentVisible: boolean;
+  setIsComponentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-export function useComponentVisible(initialIsVisible) {
-  const [isComponentVisible, setIsComponentVisible] = useState(
-    initialIsVisible
-  );
-  const ref = useRef(null);
+export function useComponentVisible(initialIsVisible: boolean) {
+  const [isComponentVisible, setIsComponentVisible] =
+    useState(initialIsVisible);
+  const ref: React.RefObject<HTMLFormElement | null> =
+    useRef<HTMLFormElement>(null);
 
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
+  const handleClickOutside = (event: Event) => {
+    const currentRef = ref.current;
+    if (currentRef && !currentRef.contains(<HTMLFormElement>event.target)) {
       setIsComponentVisible(false);
     }
   };

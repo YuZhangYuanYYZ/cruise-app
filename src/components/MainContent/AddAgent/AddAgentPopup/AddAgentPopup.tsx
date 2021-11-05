@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addAgentInfo } from '../../../../store/actions/AddAgentInfoAction';
+import { Agent } from '../../types';
 
-export const AddAgentPopup = React.forwardRef(
+type CombinedProps = {
+  setIsComponentVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export const AddAgentPopup = React.forwardRef<HTMLFormElement, CombinedProps>(
   ({ setIsComponentVisible }, ref) => {
     const dispatch = useDispatch();
-    const [agent, setAgent] = useState({});
+    const [agent, setAgent] = useState<Agent>({} as Agent);
     return (
       <form ref={ref}>
         <div className="agentName">
