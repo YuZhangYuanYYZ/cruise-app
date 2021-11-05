@@ -14,7 +14,6 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
-    'prettier/react',
     'plugin:sonarjs/recommended',
   ],
   parserOptions: {
