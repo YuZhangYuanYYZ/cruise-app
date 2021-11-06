@@ -5,7 +5,6 @@ export const DOTS = '...';
 
 const range = (start, end) => {
   let length = end - start + 1;
-  // eslint-disable-next-line compat/compat
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
