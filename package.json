@@ -8,8 +8,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "typecheck": "tsc --noEmit --skipLibCheck",
-    "lint": "eslint src",
-    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext  src/",
+    "lint": "eslint --ext .js,.jsx,.tsx,.ts src/",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.tsx,.ts src/",
     "prettier": "prettier --write ."
   },
   "browserslist": {
