@@ -3,7 +3,7 @@ import avartaImg from './assets/avatar.jpg';
 import './styles.scss';
 import titleLogo from './assets/logo/logo.svg';
 
-export function TopHeader(props) {
+export function TopHeader() {
   let [logoClickStatus, setLogoClickStatus] = useState(false);
   return (
     <div className="topHeader">

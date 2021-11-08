@@ -13,11 +13,8 @@ export function AgentList({ agents }) {
     dispatch(requestAgents());
   }, [dispatch]);
 
-  const {
-    ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(false);
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useComponentVisible(false);
   return (
     <>
       <ul>

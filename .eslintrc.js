@@ -1,4 +1,6 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
   env: {
     jest: true,
     browser: true,
@@ -7,14 +9,11 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'react-app',
-    'react-app/jest',
+    'plugin:prettier/recommended',
     'plugin:compat/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended',
-    'prettier/react',
     'plugin:sonarjs/recommended',
   ],
   parserOptions: {
@@ -29,8 +28,6 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['react'],
-  parser: 'babel-eslint',
   rules: {
     'react/prop-types': ['off'],
     'prettier/prettier': [

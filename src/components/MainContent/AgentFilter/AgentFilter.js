@@ -23,7 +23,7 @@ const renderFilters = (dispatch, currentRenderSelect) => {
   });
 };
 
-export function AgentFilter(props) {
+export function AgentFilter() {
   const dispatch = useDispatch();
   let currentRenderSelect = useSelector((state) => {
     return state.agents.renderSelect;

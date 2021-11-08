@@ -26,7 +26,7 @@ export function deleteAgent(agentId) {
   return function (dispatch) {
     dispatch(deleteAgentStart);
     deleteAgentApi(agentId).then(
-      (response) => {
+      () => {
         dispatch(deleteAgentSuccess(agentId));
       },
       (err) => dispatch(deleteAgentFail(err))
