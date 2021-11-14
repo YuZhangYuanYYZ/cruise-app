@@ -1,10 +1,15 @@
-export function deleteResource(itemId, resourceIndex, agents) {
+import { Agent } from '../../types';
+export function deleteResource(
+  itemId: number,
+  resourceIndex: number,
+  agents: Agent[]
+): Agent {
   const newAgents =
     agents &&
-    agents.map((agent) => {
+    agents.map((agent: Agent) => {
       if (agent.id === itemId) {
         const newResources = agent.resources.filter(
-          (resource, index) => index !== resourceIndex
+          (_, index: number) => index !== resourceIndex
         );
         return { ...agent, resources: newResources };
       } else {
@@ -14,7 +19,9 @@ export function deleteResource(itemId, resourceIndex, agents) {
   return newAgents && newAgents.filter((agent) => agent.id === itemId)[0];
 }
 
-export const filterAgents = (agents) => {
+type Items = Array<Agent>;
+type Agents = { items: Items; renderSelect: string };
+export const filterAgents = (agents: Agents) => {
   const { items, renderSelect } = agents;
   switch (renderSelect) {
     case 'all':

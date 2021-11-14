@@ -1,5 +1,7 @@
 import { filterAgents, deleteResource } from './agentUtil';
-const AGENT_NAME = agent_name;
+const AGENT_NAME = 'agent_name';
+const IP = '192.168.1.80';
+const LOCATION = '/var/lib/cruise-agent';
 describe('filterAgents', () => {
   const items = [
     {
@@ -48,7 +50,7 @@ describe('filterAgents', () => {
     const result = filterAgents(agents);
     expect(result).toStrictEqual([
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
@@ -63,33 +65,33 @@ describe('deleteResource', () => {
     const resourceIndex = 1;
     const agents = [
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
-        ip: '192.168.1.80',
-        location: '/var/lib/cruise-agent',
+        ip: IP,
+        location: LOCATION,
         resources: ['Firefox', 'Chrome'],
         id: 1,
       },
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
-        ip: '192.168.1.80',
-        location: '/var/lib/cruise-agent',
+        ip: IP,
+        location: LOCATION,
         resources: ['Firefox'],
         id: 2,
       },
     ];
     const newAgent = {
-      name: agent_name,
+      name: AGENT_NAME,
       os: 'windows',
       status: 'building',
       type: 'virtual',
-      ip: '192.168.1.80',
-      location: '/var/lib/cruise-agent',
+      ip: IP,
+      location: LOCATION,
       resources: ['Firefox'],
       id: 1,
     };
@@ -104,22 +106,22 @@ describe('deleteResource', () => {
   test('retun null when given agents ,resourceIndex but no itemId', () => {
     const agents = [
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
-        ip: '192.168.1.80',
-        location: '/var/lib/cruise-agent',
+        ip: IP,
+        location: LOCATION,
         resources: ['Firefox', 'Chrome'],
         id: 1,
       },
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
-        ip: '192.168.1.80',
-        location: '/var/lib/cruise-agent',
+        ip: IP,
+        location: LOCATION,
         resources: ['Firefox'],
         id: 2,
       },
@@ -130,22 +132,22 @@ describe('deleteResource', () => {
   test('retun null when given agents ,itemId , but no resourceIndex', () => {
     const agents = [
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
-        ip: '192.168.1.80',
-        location: '/var/lib/cruise-agent',
+        ip: IP,
+        location: LOCATION,
         resources: ['Firefox', 'Chrome'],
         id: 1,
       },
       {
-        name: agent_name,
+        name: AGENT_NAME,
         os: 'windows',
         status: 'building',
         type: 'virtual',
-        ip: '192.168.1.80',
-        location: '/var/lib/cruise-agent',
+        ip: IP,
+        location: LOCATION,
         resources: ['Firefox'],
         id: 2,
       },
@@ -153,9 +155,9 @@ describe('deleteResource', () => {
     const itemId = 1;
     expect(deleteResource(itemId, null, agents)).toEqual({
       id: 1,
-      ip: '192.168.1.80',
-      location: '/var/lib/cruise-agent',
-      name: agent_name,
+      ip: IP,
+      location: LOCATION,
+      name: AGENT_NAME,
       os: 'windows',
       resources: ['Firefox', 'Chrome'],
       status: 'building',
