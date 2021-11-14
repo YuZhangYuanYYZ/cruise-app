@@ -2,7 +2,7 @@ import { Agent } from '../../types';
 export function deleteResource(
   itemId: number,
   resourceIndex: number,
-  agents: Array<Agent>
+  agents: Agent[]
 ): Agent {
   const newAgents =
     agents &&
