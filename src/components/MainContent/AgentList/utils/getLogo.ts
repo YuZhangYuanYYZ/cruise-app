@@ -4,7 +4,7 @@ import suse from '../os_icons/suse.png';
 import ubuntu from '../os_icons/ubuntu.png';
 import windows from '../os_icons/windows.png';
 
-export function getLogo(os) {
+export function getLogo(os: string) {
   switch (os) {
     case 'centos':
       return centos;
