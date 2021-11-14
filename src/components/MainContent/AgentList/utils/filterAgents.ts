@@ -1,4 +1,7 @@
-export const filterAgents = (agents) => {
+import { Agent } from '../../types';
+type Items = Array<Agent>;
+type Agents = { items: Items; renderSelect: string };
+export const filterAgents = (agents: Agents) => {
   switch (agents.renderSelect) {
     case 'all':
       return agents.items;
